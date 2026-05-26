@@ -48,6 +48,7 @@ const faqs = [
 ];
 
 const whatsappUrl = "https://wa.me/556192868268";
+const instagramUrl = "https://instagram.com/REPLACE_ME";
 const email = "victoria.ayelen.gomez@gmail.com";
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
@@ -60,6 +61,49 @@ function WhatsAppIcon({ className = "" }: { className?: string }) {
     >
       <path d="M16.01 3.2A12.72 12.72 0 0 0 5.08 22.43L3.6 28.8l6.53-1.55A12.7 12.7 0 1 0 16.01 3.2Zm0 2.33a10.37 10.37 0 0 1 8.84 15.8 10.34 10.34 0 0 1-13.9 3.77l-.43-.25-3.87.92.88-3.78-.28-.45A10.38 10.38 0 0 1 16 5.53Zm-4.07 4.9c-.22 0-.58.08-.88.42-.3.35-1.15 1.13-1.15 2.75s1.18 3.18 1.34 3.4c.17.22 2.28 3.65 5.62 4.97 2.78 1.1 3.35.88 3.95.82.6-.05 1.95-.8 2.22-1.57.28-.77.28-1.42.2-1.57-.08-.14-.3-.23-.63-.4-.33-.16-1.95-.96-2.25-1.07-.3-.11-.52-.16-.74.17-.22.33-.85 1.07-1.05 1.29-.2.22-.38.25-.71.08-.33-.16-1.4-.51-2.66-1.64-.98-.88-1.65-1.96-1.84-2.29-.2-.33-.02-.51.15-.67.15-.15.33-.38.5-.58.16-.2.22-.33.33-.55.11-.22.05-.41-.03-.58-.08-.16-.72-1.79-1.02-2.43-.25-.55-.52-.56-.76-.57h-.59Z" />
     </svg>
+  );
+}
+
+function InstagramIcon({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className={className}
+      fill="none"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="1.8"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="3.7" />
+      <path d="M17.4 6.6h.01" />
+    </svg>
+  );
+}
+
+function LanguageToggle({ className = "" }: { className?: string }) {
+  return (
+    <div
+      aria-label="Selecionar idioma"
+      className={`inline-flex items-center rounded-full border border-[#e1d3c1] bg-white/46 p-1 text-[0.68rem] font-semibold tracking-[0.18em] text-[#7a6654] shadow-[0_10px_26px_rgba(86,62,40,0.045)] backdrop-blur-xl ${className}`}
+    >
+      <a
+        href="?lang=pt"
+        aria-current="page"
+        className="rounded-full bg-[#3f332b] px-3 py-2 text-white shadow-[0_8px_18px_rgba(63,51,43,0.12)]"
+      >
+        PT
+      </a>
+      <span className="px-1 text-[#c4ad95]">|</span>
+      <a
+        href="?lang=es"
+        className="rounded-full px-3 py-2 transition-colors duration-300 hover:bg-white/72 hover:text-[#3f332b]"
+      >
+        ES
+      </a>
+    </div>
   );
 }
 
@@ -107,7 +151,17 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="hidden items-center sm:flex">
+          <div className="hidden items-center gap-2 sm:flex">
+            <LanguageToggle />
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#e1d3c1] bg-white/46 text-[#5d4c3f] shadow-[0_10px_26px_rgba(86,62,40,0.045)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white hover:text-[#3f332b]"
+            >
+              <InstagramIcon className="h-4.5 w-4.5" />
+            </a>
             <a
               href={whatsappUrl}
               target="_blank"
@@ -116,6 +170,19 @@ export default function Home() {
             >
               <WhatsAppIcon className="h-4 w-4" />
               Agendar Consulta
+            </a>
+          </div>
+
+          <div className="ml-auto mr-3 flex items-center gap-2 sm:hidden">
+            <LanguageToggle className="scale-90" />
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#e1d3c1] bg-white/54 text-[#5d4c3f] shadow-[0_10px_24px_rgba(86,62,40,0.05)] backdrop-blur-xl"
+            >
+              <InstagramIcon className="h-4 w-4" />
             </a>
           </div>
 
@@ -149,6 +216,15 @@ export default function Home() {
                 <WhatsAppIcon className="h-4 w-4" />
                 Agendar pelo WhatsApp
               </a>
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 flex min-h-12 items-center justify-center gap-2 rounded-2xl border border-[#e1d3c1] bg-white/62 px-5 text-sm font-semibold text-[#5e5046]"
+              >
+                <InstagramIcon className="h-4 w-4" />
+                Instagram
+              </a>
             </div>
           </details>
         </div>
@@ -163,9 +239,15 @@ export default function Home() {
 
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[0.94fr_1.06fr]">
           <div className="max-w-3xl animate-[fadeUp_0.8s_ease-out_both]">
-            <div className="mb-5 inline-flex max-w-2xl items-center gap-3 rounded-full border border-[#e5d9c9] bg-white/62 px-4 py-2 text-xs font-semibold uppercase leading-5 tracking-[0.16em] text-[#8b6b4b] shadow-[0_10px_24px_rgba(93,69,45,0.045)] backdrop-blur-xl">
+            <div className="mb-5 inline-flex max-w-2xl items-center gap-3 rounded-2xl border border-[#e5d9c9] bg-white/62 px-4 py-2 text-xs font-semibold uppercase leading-5 tracking-[0.16em] text-[#8b6b4b] shadow-[0_10px_24px_rgba(93,69,45,0.045)] backdrop-blur-xl sm:rounded-full">
               <span className="h-1.5 w-1.5 rounded-full bg-[#a8845d]" />
-              CRP 01/19626 • Atendimento Online e Presencial • Brasil e Internacional • Português | Español
+              <span className="hidden sm:inline">
+                CRP 01/19626 • Brasil e Internacional • Português | Español
+              </span>
+              <span className="grid gap-0.5 sm:hidden">
+                <span>CRP 01/19626 • Brasil e Internacional</span>
+                <span>Português | Español</span>
+              </span>
             </div>
 
             <h1 className="font-serif text-5xl font-medium leading-[0.98] tracking-normal text-[#302923] sm:text-6xl lg:text-7xl">
@@ -185,7 +267,7 @@ export default function Home() {
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#65584d] sm:text-xl sm:leading-9">
               Atendimento psicológico com rigor clínico, escuta qualificada e
-              abordagem humanizada para indivíduos, casais e famílias, no Brasil
+              abordagem humanizada para pessoas, casais e famílias, no Brasil
               e internacionalmente.
             </p>
 
@@ -484,6 +566,15 @@ export default function Home() {
             >
               <WhatsAppIcon className="h-4 w-4" />
               WhatsApp
+            </a>
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 transition-colors hover:text-[#3f332b]"
+            >
+              <InstagramIcon className="h-4 w-4" />
+              Instagram
             </a>
           </div>
           <div className="space-y-2 md:text-right">
