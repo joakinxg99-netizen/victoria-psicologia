@@ -17,12 +17,36 @@ const copy = {
       { label: "Contato", href: "#contato" },
     ],
     areas: [
-      "Intervenção em crise",
-      "Psicoterapia individual",
-      "Casal & Família",
-      "Supervisão clínica",
-      "Saúde mental institucional",
-      "Consultoria técnica",
+      {
+        title: "Intervenção em crise",
+        description:
+          "Atendimento psicológico especializado para momentos de sofrimento agudo, instabilidade emocional e demandas urgentes de saúde mental.",
+      },
+      {
+        title: "Psicoterapia individual",
+        description:
+          "Terapia online e presencial para pessoas que buscam autoconhecimento, cuidado clínico e acompanhamento em saúde mental.",
+      },
+      {
+        title: "Casal & Família",
+        description:
+          "Terapia para casais e terapia familiar com escuta qualificada para conflitos, vínculos, comunicação e reorganização das relações.",
+      },
+      {
+        title: "Supervisão clínica",
+        description:
+          "Supervisão clínica para psicólogas e psicólogos que desejam aprofundar manejo técnico, leitura de caso e segurança ética.",
+      },
+      {
+        title: "Saúde mental institucional",
+        description:
+          "Consultoria em saúde mental para instituições, equipes e projetos que lidam com cuidado, crise e relações humanas complexas.",
+      },
+      {
+        title: "Consultoria técnica",
+        description:
+          "Apoio técnico para contextos clínicos, familiares e institucionais que exigem análise psicológica rigorosa e intervenção qualificada.",
+      },
     ],
     credentials: ["Psicóloga", "PhD & Pós-Doutora", "CRP 01/19626"],
     topCta: "Agendar Consulta",
@@ -33,7 +57,7 @@ const copy = {
     heroTrustMobileTop: "CRP 01/19626 • Brasil e Internacional",
     heroTrustMobileBottom: "Português | Español",
     heroParagraph:
-      "Atendimento psicológico com rigor clínico, escuta qualificada e abordagem humanizada para pessoas, casais e famílias, no Brasil e internacionalmente.",
+      "Psicóloga clínica com atendimento psicológico online e presencial para pessoas, casais e famílias, no Brasil e internacionalmente, com foco em saúde mental, escuta qualificada e cuidado humanizado.",
     secondaryCta: "Conhecer abordagem",
     heroImageBadge: "Clínica • Ensino • Pesquisa",
     aboutLabel: "Sobre",
@@ -44,7 +68,8 @@ const copy = {
     aboutText:
       "Dra. Victoria A. Gómez é psicóloga, PhD e pós-doutora, CRP 01/19626. Sua trajetória integra clínica, docência universitária, supervisão profissional e produção de conhecimento, oferecendo um espaço de cuidado reservado, bilíngue e profundamente atento às singularidades de cada pessoa, casal ou família, no Brasil e internacionalmente.",
     areasLabel: "Áreas de atuação",
-    areasTitle: "Cuidado especializado para momentos sensíveis.",
+    areasTitle:
+      "Atendimento psicológico especializado em terapia online, casais, famílias e saúde mental.",
     supervisionLabel: "Supervisão",
     supervisionTitle:
       "Supervisão clínica para profissionais em desenvolvimento.",
@@ -66,24 +91,34 @@ const copy = {
     faqTitle: "Perguntas frequentes antes do primeiro contato.",
     faqs: [
       {
-        question: "O atendimento pode ser realizado em espanhol?",
+        question: "Como funciona o atendimento psicológico online?",
         answer:
-          "Sim. Dra. Victoria realiza atendimento em Português e Español, oferecendo uma escuta clínica qualificada para pacientes bilíngues, brasileiros e estrangeiros.",
+          "O atendimento psicológico online é realizado em ambiente reservado, por videochamada, com sigilo profissional e a mesma qualidade clínica do atendimento presencial. É indicado para pessoas que buscam terapia online no Brasil ou no exterior.",
       },
       {
-        question: "Atende pacientes fora do Brasil?",
+        question: "Atende brasileiros que vivem no exterior?",
         answer:
-          "Sim. A prática contempla atendimentos nacionais e internacionais, especialmente por meio da modalidade online, com cuidado ético e humanizado.",
+          "Sim. Dra. Victoria realiza atendimento internacional e acompanha brasileiros que vivem fora do país, oferecendo psicoterapia em português e espanhol para demandas de saúde mental, adaptação, vínculos e sofrimento emocional.",
       },
       {
-        question: "Como funciona o atendimento online?",
+        question: "Como funciona a primeira consulta?",
         answer:
-          "O atendimento online é realizado em ambiente reservado e seguro, preservando sigilo, qualidade técnica e continuidade do acompanhamento psicológico.",
+          "A primeira consulta é um encontro de escuta inicial para compreender a demanda, o contexto de vida, os objetivos do atendimento psicológico e a melhor forma de acompanhamento clínico.",
       },
       {
-        question: "Como agendar um primeiro atendimento?",
+        question: "Atendimento para casais e famílias?",
         answer:
-          "O primeiro contato pode ser feito por WhatsApp ou email para alinhar disponibilidade, modalidade de atendimento, idioma e encaminhamentos iniciais.",
+          "Sim. Há atendimento para casais e famílias, com foco em comunicação, conflitos, vínculos, parentalidade, crises relacionais e construção de novos recursos de convivência.",
+      },
+      {
+        question: "Como agendar atendimento?",
+        answer:
+          "O agendamento pode ser feito pelo WhatsApp ou email. No primeiro contato, são alinhados disponibilidade, modalidade de consulta, idioma e informações iniciais sobre o atendimento.",
+      },
+      {
+        question: "Supervisão clínica para profissionais?",
+        answer:
+          "Sim. A supervisão clínica é voltada para psicólogas e psicólogos que buscam aprimorar manejo técnico, formulação de caso, intervenção em crise e tomada de decisão ética.",
       },
     ],
     contactLabel: "Contato",
@@ -111,12 +146,36 @@ const copy = {
       { label: "Contacto", href: "#contato" },
     ],
     areas: [
-      "Intervención en crisis",
-      "Psicoterapia individual",
-      "Pareja & Familia",
-      "Supervisión clínica",
-      "Salud mental institucional",
-      "Consultoría técnica",
+      {
+        title: "Intervención en crisis",
+        description:
+          "Atención psicológica especializada para momentos de sufrimiento agudo, inestabilidad emocional y demandas urgentes de salud mental.",
+      },
+      {
+        title: "Psicoterapia individual",
+        description:
+          "Terapia online y presencial para personas que buscan autoconocimiento, cuidado clínico y acompañamiento en salud mental.",
+      },
+      {
+        title: "Pareja & Familia",
+        description:
+          "Terapia para parejas y terapia familiar con escucha calificada para conflictos, vínculos, comunicación y reorganización relacional.",
+      },
+      {
+        title: "Supervisión clínica",
+        description:
+          "Supervisión clínica para psicólogas y psicólogos que desean profundizar manejo técnico, lectura de caso y seguridad ética.",
+      },
+      {
+        title: "Salud mental institucional",
+        description:
+          "Consultoría en salud mental para instituciones, equipos y proyectos que trabajan con cuidado, crisis y relaciones humanas complejas.",
+      },
+      {
+        title: "Consultoría técnica",
+        description:
+          "Apoyo técnico para contextos clínicos, familiares e institucionales que requieren análisis psicológico riguroso e intervención calificada.",
+      },
     ],
     credentials: ["Psicóloga", "PhD & Posdoctora", "CRP 01/19626"],
     topCta: "Agendar Consulta",
@@ -127,7 +186,7 @@ const copy = {
     heroTrustMobileTop: "CRP 01/19626 • Brasil e Internacional",
     heroTrustMobileBottom: "Português | Español",
     heroParagraph:
-      "Atención psicológica con rigor clínico, escucha calificada y abordaje humanizado para personas, parejas y familias, en Brasil e internacionalmente.",
+      "Psicóloga clínica con atención psicológica online y presencial para personas, parejas y familias, en Brasil e internacionalmente, con foco en salud mental, escucha calificada y cuidado humanizado.",
     secondaryCta: "Conocer el enfoque",
     heroImageBadge: "Clínica • Docencia • Investigación",
     aboutLabel: "Sobre",
@@ -138,7 +197,8 @@ const copy = {
     aboutText:
       "Dra. Victoria A. Gómez es psicóloga, PhD y posdoctora, CRP 01/19626. Su trayectoria integra clínica, docencia universitaria, supervisión profesional y producción de conocimiento, ofreciendo un espacio de cuidado reservado, bilingüe y profundamente atento a las singularidades de cada persona, pareja o familia, en Brasil e internacionalmente.",
     areasLabel: "Áreas de actuación",
-    areasTitle: "Cuidado especializado para momentos sensibles.",
+    areasTitle:
+      "Atención psicológica especializada en terapia online, parejas, familias y salud mental.",
     supervisionLabel: "Supervisión",
     supervisionTitle:
       "Supervisión clínica para profesionales en desarrollo.",
@@ -160,24 +220,34 @@ const copy = {
     faqTitle: "Preguntas frecuentes antes del primer contacto.",
     faqs: [
       {
-        question: "¿La atención puede realizarse en español?",
+        question: "¿Cómo funciona la atención psicológica online?",
         answer:
-          "Sí. Dra. Victoria realiza atención en Português y Español, ofreciendo una escucha clínica calificada para pacientes bilingües, brasileños y extranjeros.",
+          "La atención psicológica online se realiza en un entorno reservado, por videollamada, con sigilo profesional y la misma calidad clínica de la atención presencial. Es indicada para personas que buscan terapia online en Brasil o en el exterior.",
       },
       {
-        question: "¿Atiende pacientes fuera de Brasil?",
+        question: "¿Atiende brasileños que viven en el exterior?",
         answer:
-          "Sí. La práctica contempla atención nacional e internacional, especialmente por medio de la modalidad online, con cuidado ético y humanizado.",
+          "Sí. Dra. Victoria realiza atención internacional y acompaña brasileños que viven fuera del país, ofreciendo psicoterapia en portugués y español para demandas de salud mental, adaptación, vínculos y sufrimiento emocional.",
       },
       {
-        question: "¿Cómo funciona la atención online?",
+        question: "¿Cómo funciona la primera consulta?",
         answer:
-          "La atención online se realiza en un entorno reservado y seguro, preservando el sigilo, la calidad técnica y la continuidad del acompañamiento psicológico.",
+          "La primera consulta es un encuentro de escucha inicial para comprender la demanda, el contexto de vida, los objetivos de la atención psicológica y la mejor forma de acompañamiento clínico.",
       },
       {
-        question: "¿Cómo agendar una primera consulta?",
+        question: "¿Atención para parejas y familias?",
         answer:
-          "El primer contacto puede hacerse por WhatsApp o email para alinear disponibilidad, modalidad de atención, idioma y orientaciones iniciales.",
+          "Sí. Hay atención para parejas y familias, con foco en comunicación, conflictos, vínculos, parentalidad, crisis relacionales y construcción de nuevos recursos de convivencia.",
+      },
+      {
+        question: "¿Cómo agendar atención?",
+        answer:
+          "La consulta puede agendarse por WhatsApp o email. En el primer contacto, se alinean disponibilidad, modalidad de consulta, idioma e información inicial sobre la atención.",
+      },
+      {
+        question: "¿Supervisión clínica para profesionales?",
+        answer:
+          "Sí. La supervisión clínica está dirigida a psicólogas y psicólogos que buscan aprimorar manejo técnico, formulación de caso, intervención en crisis y toma de decisiones éticas.",
       },
     ],
     contactLabel: "Contacto",
@@ -530,7 +600,7 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {t.areas.map((area, index) => (
               <article
-                key={area}
+                key={area.title}
                 className="group relative overflow-hidden rounded-[1.5rem] border border-white/75 bg-white/60 p-7 shadow-[0_22px_65px_rgba(90,65,42,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-[0_30px_80px_rgba(90,65,42,0.13)]"
               >
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#b8946d] via-[#e5d4bd] to-transparent opacity-80" />
@@ -538,8 +608,11 @@ export default function Home() {
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-8 font-serif text-2xl text-[#352c25]">
-                  {area}
+                  {area.title}
                 </h3>
+                <p className="mt-4 text-sm leading-7 text-[#6f6258]">
+                  {area.description}
+                </p>
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-[#d8c2a3] to-transparent" />
               </article>
             ))}
