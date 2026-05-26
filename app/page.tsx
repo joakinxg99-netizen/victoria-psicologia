@@ -48,7 +48,7 @@ const faqs = [
 ];
 
 const whatsappUrl = "https://wa.me/556192868268";
-const instagramUrl = "https://instagram.com/REPLACE_ME";
+const instagramUrl = "https://www.instagram.com/victoriagomezpsicologa/";
 const email = "victoria.ayelen.gomez@gmail.com";
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
