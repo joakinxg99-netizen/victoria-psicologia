@@ -500,7 +500,7 @@ export default function Home() {
                 className="aspect-[4/5] w-full rounded-[1.55rem] object-cover object-[center_18%] saturate-[0.96]"
               />
             </div>
-            <div className="absolute left-5 top-5 rounded-2xl border border-white/70 bg-white/72 px-5 py-4 text-sm text-[#6f5b48] shadow-[0_18px_48px_rgba(67,49,32,0.12)] backdrop-blur-2xl">
+            <div className="mt-4 rounded-2xl border border-white/70 bg-white/70 px-5 py-4 text-sm text-[#6f5b48] shadow-[0_14px_36px_rgba(67,49,32,0.08)] backdrop-blur-2xl lg:absolute lg:left-5 lg:top-5 lg:mt-0 lg:bg-white/72 lg:shadow-[0_18px_48px_rgba(67,49,32,0.12)]">
               <p className="font-serif text-xl text-[#352c25]">
                 {t.aboutImageLanguage}
               </p>
