@@ -1,51 +1,200 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
-const navItems = [
-  { label: "Sobre", href: "#sobre" },
-  { label: "Atuação", href: "#atuacao" },
-  { label: "Supervisão", href: "#supervisao" },
-  { label: "Pesquisa", href: "#pesquisa" },
-  { label: "FAQ", href: "#faq" },
-  { label: "Contato", href: "#contato" },
-];
+type Lang = "pt" | "es";
 
-const areas = [
-  "Intervenção em crise",
-  "Psicoterapia individual",
-  "Casal & Família",
-  "Supervisão clínica",
-  "Saúde mental institucional",
-  "Consultoria técnica",
-];
-
-const credentials = [
-  "Psicóloga",
-  "PhD & Pós-Doutora",
-  "CRP 01/19626",
-];
-
-const faqs = [
-  {
-    question: "O atendimento pode ser realizado em espanhol?",
-    answer:
-      "Sim. Dra. Victoria realiza atendimento em Português e Español, oferecendo uma escuta clínica qualificada para pacientes bilíngues, brasileiros e estrangeiros.",
+const copy = {
+  pt: {
+    brandSubtitle: "Psicologia Clínica",
+    navItems: [
+      { label: "Sobre", href: "#sobre" },
+      { label: "Atuação", href: "#atuacao" },
+      { label: "Supervisão", href: "#supervisao" },
+      { label: "Pesquisa", href: "#pesquisa" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Contato", href: "#contato" },
+    ],
+    areas: [
+      "Intervenção em crise",
+      "Psicoterapia individual",
+      "Casal & Família",
+      "Supervisão clínica",
+      "Saúde mental institucional",
+      "Consultoria técnica",
+    ],
+    credentials: ["Psicóloga", "PhD & Pós-Doutora", "CRP 01/19626"],
+    topCta: "Agendar Consulta",
+    mobileNavLabel: "Abrir navegação",
+    whatsappCta: "Agendar pelo WhatsApp",
+    heroTrustDesktop:
+      "CRP 01/19626 • Brasil e Internacional • Português | Español",
+    heroTrustMobileTop: "CRP 01/19626 • Brasil e Internacional",
+    heroTrustMobileBottom: "Português | Español",
+    heroParagraph:
+      "Atendimento psicológico com rigor clínico, escuta qualificada e abordagem humanizada para pessoas, casais e famílias, no Brasil e internacionalmente.",
+    secondaryCta: "Conhecer abordagem",
+    heroImageBadge: "Clínica • Ensino • Pesquisa",
+    aboutLabel: "Sobre",
+    aboutImageLanguage: "Português | Español",
+    international: "Brasil e Internacional",
+    aboutTitle:
+      "Uma prática clínica guiada por ciência, presença e precisão.",
+    aboutText:
+      "Dra. Victoria A. Gómez é psicóloga, PhD e pós-doutora, CRP 01/19626. Sua trajetória integra clínica, docência universitária, supervisão profissional e produção de conhecimento, oferecendo um espaço de cuidado reservado, bilíngue e profundamente atento às singularidades de cada pessoa, casal ou família, no Brasil e internacionalmente.",
+    areasLabel: "Áreas de atuação",
+    areasTitle: "Cuidado especializado para momentos sensíveis.",
+    supervisionLabel: "Supervisão",
+    supervisionTitle:
+      "Supervisão clínica para profissionais em desenvolvimento.",
+    supervisionText:
+      "Como professora universitária e supervisora, Dra. Victoria oferece acompanhamento qualificado para psicólogas e psicólogos que buscam ampliar repertório técnico, leitura clínica e segurança ética na prática profissional.",
+    supervisionChips: ["Leitura clínica", "Manejo ético", "Casos complexos"],
+    supervisionBadge: "Supervisão • Cuidado • Formação",
+    supervisionImageText:
+      "Uma presença clínica para sustentar decisões sensíveis.",
+    researchLabel: "Pesquisa",
+    researchTitle: "Produção acadêmica com impacto humano.",
+    researchText:
+      "Atuação em pesquisa, formação e discussão científica, conectando conhecimento avançado às necessidades concretas de cuidado, prevenção e intervenção.",
+    consultingLabel: "Consultoria",
+    consultingTitle: "Consultoria técnica para contextos complexos.",
+    consultingText:
+      "Apoio especializado para equipes, instituições e projetos que demandam leitura psicológica qualificada, especialmente em crise, família, vínculo e cuidado.",
+    faqLabel: "FAQ",
+    faqTitle: "Perguntas frequentes antes do primeiro contato.",
+    faqs: [
+      {
+        question: "O atendimento pode ser realizado em espanhol?",
+        answer:
+          "Sim. Dra. Victoria realiza atendimento em Português e Español, oferecendo uma escuta clínica qualificada para pacientes bilíngues, brasileiros e estrangeiros.",
+      },
+      {
+        question: "Atende pacientes fora do Brasil?",
+        answer:
+          "Sim. A prática contempla atendimentos nacionais e internacionais, especialmente por meio da modalidade online, com cuidado ético e humanizado.",
+      },
+      {
+        question: "Como funciona o atendimento online?",
+        answer:
+          "O atendimento online é realizado em ambiente reservado e seguro, preservando sigilo, qualidade técnica e continuidade do acompanhamento psicológico.",
+      },
+      {
+        question: "Como agendar um primeiro atendimento?",
+        answer:
+          "O primeiro contato pode ser feito por WhatsApp ou email para alinhar disponibilidade, modalidade de atendimento, idioma e encaminhamentos iniciais.",
+      },
+    ],
+    contactLabel: "Contato",
+    contactTitle:
+      "Um primeiro contato pode ser simples, discreto e acolhedor.",
+    contactWhatsapp: "Chamar no WhatsApp",
+    footerCredentials: "Psicóloga • PhD & Pós-Doutora",
+    footerContact: "Contato",
+    footerCare: "Atendimento",
+    footerCareMode: "Online e Presencial",
+    whatsapp: "WhatsApp",
+    floatingWhatsappLabel: "Abrir WhatsApp",
+    altHero: "Retrato de Dra. Victoria A. Gómez",
+    altStanding: "Dra. Victoria A. Gómez em retrato editorial",
+    altChair: "Dra. Victoria A. Gómez sentada em poltrona verde",
   },
-  {
-    question: "Atende pacientes fora do Brasil?",
-    answer:
-      "Sim. A prática contempla atendimentos nacionais e internacionais, especialmente por meio da modalidade online, com cuidado ético e humanizado.",
+  es: {
+    brandSubtitle: "Psicología Clínica",
+    navItems: [
+      { label: "Sobre", href: "#sobre" },
+      { label: "Áreas", href: "#atuacao" },
+      { label: "Supervisión", href: "#supervisao" },
+      { label: "Investigación", href: "#pesquisa" },
+      { label: "FAQ", href: "#faq" },
+      { label: "Contacto", href: "#contato" },
+    ],
+    areas: [
+      "Intervención en crisis",
+      "Psicoterapia individual",
+      "Pareja & Familia",
+      "Supervisión clínica",
+      "Salud mental institucional",
+      "Consultoría técnica",
+    ],
+    credentials: ["Psicóloga", "PhD & Posdoctora", "CRP 01/19626"],
+    topCta: "Agendar Consulta",
+    mobileNavLabel: "Abrir navegación",
+    whatsappCta: "Agendar por WhatsApp",
+    heroTrustDesktop:
+      "CRP 01/19626 • Brasil e Internacional • Português | Español",
+    heroTrustMobileTop: "CRP 01/19626 • Brasil e Internacional",
+    heroTrustMobileBottom: "Português | Español",
+    heroParagraph:
+      "Atención psicológica con rigor clínico, escucha calificada y abordaje humanizado para personas, parejas y familias, en Brasil e internacionalmente.",
+    secondaryCta: "Conocer el enfoque",
+    heroImageBadge: "Clínica • Docencia • Investigación",
+    aboutLabel: "Sobre",
+    aboutImageLanguage: "Português | Español",
+    international: "Brasil e Internacional",
+    aboutTitle:
+      "Una práctica clínica guiada por ciencia, presencia y precisión.",
+    aboutText:
+      "Dra. Victoria A. Gómez es psicóloga, PhD y posdoctora, CRP 01/19626. Su trayectoria integra clínica, docencia universitaria, supervisión profesional y producción de conocimiento, ofreciendo un espacio de cuidado reservado, bilingüe y profundamente atento a las singularidades de cada persona, pareja o familia, en Brasil e internacionalmente.",
+    areasLabel: "Áreas de actuación",
+    areasTitle: "Cuidado especializado para momentos sensibles.",
+    supervisionLabel: "Supervisión",
+    supervisionTitle:
+      "Supervisión clínica para profesionales en desarrollo.",
+    supervisionText:
+      "Como profesora universitaria y supervisora, Dra. Victoria ofrece acompañamiento calificado para psicólogas y psicólogos que buscan ampliar repertorio técnico, lectura clínica y seguridad ética en la práctica profesional.",
+    supervisionChips: ["Lectura clínica", "Manejo ético", "Casos complejos"],
+    supervisionBadge: "Supervisión • Cuidado • Formación",
+    supervisionImageText:
+      "Una presencia clínica para sostener decisiones sensibles.",
+    researchLabel: "Investigación",
+    researchTitle: "Producción académica con impacto humano.",
+    researchText:
+      "Actuación en investigación, formación y discusión científica, conectando conocimiento avanzado con necesidades concretas de cuidado, prevención e intervención.",
+    consultingLabel: "Consultoría",
+    consultingTitle: "Consultoría técnica para contextos complejos.",
+    consultingText:
+      "Apoyo especializado para equipos, instituciones y proyectos que demandan lectura psicológica calificada, especialmente en crisis, familia, vínculo y cuidado.",
+    faqLabel: "FAQ",
+    faqTitle: "Preguntas frecuentes antes del primer contacto.",
+    faqs: [
+      {
+        question: "¿La atención puede realizarse en español?",
+        answer:
+          "Sí. Dra. Victoria realiza atención en Português y Español, ofreciendo una escucha clínica calificada para pacientes bilingües, brasileños y extranjeros.",
+      },
+      {
+        question: "¿Atiende pacientes fuera de Brasil?",
+        answer:
+          "Sí. La práctica contempla atención nacional e internacional, especialmente por medio de la modalidad online, con cuidado ético y humanizado.",
+      },
+      {
+        question: "¿Cómo funciona la atención online?",
+        answer:
+          "La atención online se realiza en un entorno reservado y seguro, preservando el sigilo, la calidad técnica y la continuidad del acompañamiento psicológico.",
+      },
+      {
+        question: "¿Cómo agendar una primera consulta?",
+        answer:
+          "El primer contacto puede hacerse por WhatsApp o email para alinear disponibilidad, modalidad de atención, idioma y orientaciones iniciales.",
+      },
+    ],
+    contactLabel: "Contacto",
+    contactTitle:
+      "Un primer contacto puede ser simple, discreto y acogedor.",
+    contactWhatsapp: "Escribir por WhatsApp",
+    footerCredentials: "Psicóloga • PhD & Posdoctora",
+    footerContact: "Contacto",
+    footerCare: "Atención",
+    footerCareMode: "Online y Presencial",
+    whatsapp: "WhatsApp",
+    floatingWhatsappLabel: "Abrir WhatsApp",
+    altHero: "Retrato de Dra. Victoria A. Gómez",
+    altStanding: "Dra. Victoria A. Gómez en retrato editorial",
+    altChair: "Dra. Victoria A. Gómez sentada en sillón verde",
   },
-  {
-    question: "Como funciona o atendimento online?",
-    answer:
-      "O atendimento online é realizado em ambiente reservado e seguro, preservando sigilo, qualidade técnica e continuidade do acompanhamento psicológico.",
-  },
-  {
-    question: "Como agendar um primeiro atendimento?",
-    answer:
-      "O primeiro contato pode ser feito por WhatsApp ou email para alinhar disponibilidade, modalidade de atendimento, idioma e encaminhamentos iniciais.",
-  },
-];
+} satisfies Record<Lang, Record<string, unknown>>;
 
 const whatsappUrl = "https://wa.me/556192868268";
 const instagramUrl = "https://www.instagram.com/victoriagomezpsicologa/";
@@ -83,31 +232,53 @@ function InstagramIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function LanguageToggle({ className = "" }: { className?: string }) {
+function LanguageToggle({
+  className = "",
+  lang,
+  setLang,
+}: {
+  className?: string;
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+}) {
   return (
     <div
       aria-label="Selecionar idioma"
       className={`inline-flex items-center rounded-full border border-[#e1d3c1] bg-white/46 p-1 text-[0.68rem] font-semibold tracking-[0.18em] text-[#7a6654] shadow-[0_10px_26px_rgba(86,62,40,0.045)] backdrop-blur-xl ${className}`}
     >
-      <a
-        href="?lang=pt"
-        aria-current="page"
-        className="rounded-full bg-[#3f332b] px-3 py-2 text-white shadow-[0_8px_18px_rgba(63,51,43,0.12)]"
+      <button
+        type="button"
+        onClick={() => setLang("pt")}
+        aria-pressed={lang === "pt"}
+        className={`rounded-full px-3 py-2 transition-colors duration-300 ${
+          lang === "pt"
+            ? "bg-[#3f332b] text-white shadow-[0_8px_18px_rgba(63,51,43,0.12)]"
+            : "hover:bg-white/72 hover:text-[#3f332b]"
+        }`}
       >
         PT
-      </a>
+      </button>
       <span className="px-1 text-[#c4ad95]">|</span>
-      <a
-        href="?lang=es"
-        className="rounded-full px-3 py-2 transition-colors duration-300 hover:bg-white/72 hover:text-[#3f332b]"
+      <button
+        type="button"
+        onClick={() => setLang("es")}
+        aria-pressed={lang === "es"}
+        className={`rounded-full px-3 py-2 transition-colors duration-300 ${
+          lang === "es"
+            ? "bg-[#3f332b] text-white shadow-[0_8px_18px_rgba(63,51,43,0.12)]"
+            : "hover:bg-white/72 hover:text-[#3f332b]"
+        }`}
       >
         ES
-      </a>
+      </button>
     </div>
   );
 }
 
 export default function Home() {
+  const [lang, setLang] = useState<Lang>("pt");
+  const t = copy[lang];
+
   return (
     <main className="min-h-screen scroll-smooth bg-[#fbf8f3] text-[#302923] selection:bg-[#d8c2a3]/40">
       <style>{`
@@ -135,12 +306,12 @@ export default function Home() {
               VICTORIA
             </span>
             <span className="text-[0.62rem] uppercase tracking-[0.32em] text-[#9a846c]">
-              Psicologia Clínica
+              {t.brandSubtitle}
             </span>
           </a>
 
           <div className="hidden items-center gap-7 rounded-full border border-white/70 bg-white/45 px-7 py-3 shadow-[0_14px_46px_rgba(96,70,45,0.06)] backdrop-blur-xl lg:flex">
-            {navItems.map((item) => (
+            {t.navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -152,7 +323,7 @@ export default function Home() {
           </div>
 
           <div className="hidden items-center gap-2 sm:flex">
-            <LanguageToggle />
+            <LanguageToggle lang={lang} setLang={setLang} />
             <a
               href={instagramUrl}
               target="_blank"
@@ -169,12 +340,12 @@ export default function Home() {
               className="inline-flex items-center gap-2 rounded-full bg-[#3f332b] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(63,51,43,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7f654c] hover:shadow-[0_18px_44px_rgba(86,62,40,0.18)]"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              Agendar Consulta
+              {t.topCta}
             </a>
           </div>
 
           <div className="ml-auto mr-3 flex items-center gap-2 sm:hidden">
-            <LanguageToggle className="scale-90" />
+            <LanguageToggle className="scale-90" lang={lang} setLang={setLang} />
             <a
               href={instagramUrl}
               target="_blank"
@@ -188,7 +359,7 @@ export default function Home() {
 
           <details className="group relative sm:hidden">
             <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#e1d3c1] bg-white/60 text-[#3f332b] shadow-[0_12px_34px_rgba(63,51,43,0.10)] backdrop-blur-xl transition-all duration-300 group-open:bg-[#3f332b] group-open:text-white [&::-webkit-details-marker]:hidden">
-              <span className="sr-only">Abrir navegação</span>
+              <span className="sr-only">{t.mobileNavLabel}</span>
               <span className="relative block h-3.5 w-5">
                 <span className="absolute left-0 top-0 h-px w-5 bg-current transition-transform duration-300 group-open:translate-y-[7px] group-open:rotate-45" />
                 <span className="absolute left-0 top-[7px] h-px w-5 bg-current transition-opacity duration-300 group-open:opacity-0" />
@@ -197,7 +368,7 @@ export default function Home() {
             </summary>
             <div className="absolute right-0 top-14 w-[min(82vw,21rem)] overflow-hidden rounded-3xl border border-white/75 bg-[#fffaf4]/92 p-3 shadow-[0_28px_80px_rgba(63,51,43,0.18)] backdrop-blur-2xl">
               <div className="grid gap-1">
-                {navItems.map((item) => (
+                {t.navItems.map((item) => (
                   <a
                     key={item.href}
                     href={item.href}
@@ -214,7 +385,7 @@ export default function Home() {
                 className="mt-3 flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-[#3f332b] px-5 text-sm font-semibold text-white"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-                Agendar pelo WhatsApp
+                {t.whatsappCta}
               </a>
               <a
                 href={instagramUrl}
@@ -242,11 +413,11 @@ export default function Home() {
             <div className="mb-5 inline-flex max-w-2xl items-center gap-3 rounded-2xl border border-[#e5d9c9] bg-white/62 px-4 py-2 text-xs font-semibold uppercase leading-5 tracking-[0.16em] text-[#8b6b4b] shadow-[0_10px_24px_rgba(93,69,45,0.045)] backdrop-blur-xl sm:rounded-full">
               <span className="h-1.5 w-1.5 rounded-full bg-[#a8845d]" />
               <span className="hidden sm:inline">
-                CRP 01/19626 • Brasil e Internacional • Português | Español
+                {t.heroTrustDesktop}
               </span>
               <span className="grid gap-0.5 sm:hidden">
-                <span>CRP 01/19626 • Brasil e Internacional</span>
-                <span>Português | Español</span>
+                <span>{t.heroTrustMobileTop}</span>
+                <span>{t.heroTrustMobileBottom}</span>
               </span>
             </div>
 
@@ -255,7 +426,7 @@ export default function Home() {
             </h1>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              {credentials.map((item) => (
+              {t.credentials.map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-[#e5d9c9] bg-white/60 px-4 py-2 text-sm text-[#6f5b48] shadow-sm backdrop-blur-xl"
@@ -266,9 +437,7 @@ export default function Home() {
             </div>
 
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#65584d] sm:text-xl sm:leading-9">
-              Atendimento psicológico com rigor clínico, escuta qualificada e
-              abordagem humanizada para pessoas, casais e famílias, no Brasil
-              e internacionalmente.
+              {t.heroParagraph}
             </p>
 
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -279,13 +448,13 @@ export default function Home() {
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#3f332b] px-8 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(63,51,43,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7f654c] hover:shadow-[0_20px_48px_rgba(86,62,40,0.18)]"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-                Agendar pelo WhatsApp
+                {t.whatsappCta}
               </a>
               <a
                 href="#sobre"
                 className="inline-flex min-h-14 items-center justify-center rounded-full border border-[#d9cab8] bg-white/56 px-8 text-sm font-semibold text-[#46382e] shadow-[0_10px_26px_rgba(86,62,40,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b99a77] hover:bg-white"
               >
-                Conhecer abordagem
+                {t.secondaryCta}
               </a>
             </div>
           </div>
@@ -298,7 +467,7 @@ export default function Home() {
               <div className="overflow-hidden rounded-[1.78rem] bg-[#efe4d5]">
                 <Image
                   src="/victoria-hero.jpg"
-                  alt="Retrato de Dra. Victoria A. Gómez"
+                  alt={t.altHero}
                   width={920}
                   height={1120}
                   priority
@@ -308,7 +477,7 @@ export default function Home() {
               </div>
               <div className="absolute bottom-6 left-6 max-w-[16rem] rounded-full border border-white/45 bg-[#fffaf4]/38 px-4 py-2 shadow-[0_10px_28px_rgba(67,49,32,0.08)] backdrop-blur-xl">
                 <p className="text-[0.68rem] uppercase tracking-[0.22em] text-[#7f654c]">
-                  Clínica • Ensino • Pesquisa
+                  {t.heroImageBadge}
                 </p>
               </div>
             </div>
@@ -324,7 +493,7 @@ export default function Home() {
             <div className="relative overflow-hidden rounded-[2rem] border border-white/75 bg-white/52 p-3 shadow-[0_30px_95px_rgba(83,61,40,0.14)] backdrop-blur-xl">
               <Image
                 src="/victoria-standing.jpeg"
-                alt="Dra. Victoria A. Gómez em retrato editorial"
+                alt={t.altStanding}
                 width={852}
                 height={1280}
                 sizes="(min-width: 1024px) 40vw, 92vw"
@@ -333,29 +502,24 @@ export default function Home() {
             </div>
             <div className="absolute left-5 top-5 rounded-2xl border border-white/70 bg-white/72 px-5 py-4 text-sm text-[#6f5b48] shadow-[0_18px_48px_rgba(67,49,32,0.12)] backdrop-blur-2xl">
               <p className="font-serif text-xl text-[#352c25]">
-                Português | Español
+                {t.aboutImageLanguage}
               </p>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#9a7654]">
-                Brasil e Internacional
+                {t.international}
               </p>
             </div>
           </div>
 
           <div className="order-1 lg:order-2 lg:pl-8">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              Sobre
+              {t.aboutLabel}
             </p>
             <h2 className="mt-4 max-w-2xl font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
-              Uma prática clínica guiada por ciência, presença e precisão.
+              {t.aboutTitle}
             </h2>
             <div className="mt-8 rounded-[1.75rem] border border-white/75 bg-white/62 p-8 shadow-[0_24px_70px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-10">
               <p className="text-lg leading-9 text-[#65584d]">
-                Dra. Victoria A. Gómez é psicóloga, PhD e pós-doutora, CRP
-                01/19626. Sua trajetória integra clínica, docência
-                universitária, supervisão profissional e produção de
-                conhecimento, oferecendo um espaço de cuidado reservado,
-                bilíngue e profundamente atento às singularidades de cada
-                pessoa, casal ou família, no Brasil e internacionalmente.
+                {t.aboutText}
               </p>
             </div>
           </div>
@@ -366,15 +530,15 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              Áreas de atuação
+              {t.areasLabel}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
-              Cuidado especializado para momentos sensíveis.
+              {t.areasTitle}
             </h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {areas.map((area, index) => (
+            {t.areas.map((area, index) => (
               <article
                 key={area}
                 className="group relative overflow-hidden rounded-[1.5rem] border border-white/75 bg-white/60 p-7 shadow-[0_22px_65px_rgba(90,65,42,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-[0_30px_80px_rgba(90,65,42,0.13)]"
@@ -399,34 +563,30 @@ export default function Home() {
             <div className="relative z-10 p-8 sm:p-12 lg:p-16">
               <div className="absolute left-12 top-10 -z-10 h-44 w-44 rounded-full bg-[#8b6b4b]/20 blur-3xl" />
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#d8c2a3]">
-                Supervisão
+                {t.supervisionLabel}
               </p>
               <h2 className="mt-4 font-serif text-4xl font-medium leading-tight sm:text-5xl">
-                Supervisão clínica para profissionais em desenvolvimento.
+                {t.supervisionTitle}
               </h2>
               <p className="mt-8 max-w-2xl text-lg leading-9 text-[#eadfce]">
-                Como professora universitária e supervisora, Dra. Victoria
-                oferece acompanhamento qualificado para psicólogas e psicólogos
-                que buscam ampliar repertório técnico, leitura clínica e
-                segurança ética na prática profissional.
+                {t.supervisionText}
               </p>
               <div className="mt-10 grid gap-3 text-sm text-[#eadfce] sm:grid-cols-3">
-                <div className="rounded-2xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-xl">
-                  Leitura clínica
-                </div>
-                <div className="rounded-2xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-xl">
-                  Manejo ético
-                </div>
-                <div className="rounded-2xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-xl">
-                  Casos complexos
-                </div>
+                {t.supervisionChips.map((chip) => (
+                  <div
+                    key={chip}
+                    className="rounded-2xl border border-white/12 bg-white/[0.06] p-4 backdrop-blur-xl"
+                  >
+                    {chip}
+                  </div>
+                ))}
               </div>
             </div>
 
             <div className="relative min-h-[28rem] overflow-hidden border-t border-white/10 lg:border-l lg:border-t-0">
               <Image
                 src="/victoria-chair.jpeg"
-                alt="Dra. Victoria A. Gómez sentada em poltrona verde"
+                alt={t.altChair}
                 width={852}
                 height={1280}
                 sizes="(min-width: 1024px) 42vw, 92vw"
@@ -435,10 +595,10 @@ export default function Home() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#3f332b]/60 via-transparent to-transparent lg:bg-gradient-to-r lg:from-[#3f332b]/22 lg:via-transparent lg:to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-white/18 bg-[#fffaf4]/12 p-5 text-[#f8efe4] shadow-[0_18px_55px_rgba(0,0,0,0.18)] backdrop-blur-2xl">
                 <p className="text-xs uppercase tracking-[0.24em] text-[#e5d4bd]">
-                  Supervisão • Cuidado • Formação
+                  {t.supervisionBadge}
                 </p>
                 <p className="mt-2 font-serif text-2xl">
-                  Uma presença clínica para sustentar decisões sensíveis.
+                  {t.supervisionImageText}
                 </p>
               </div>
             </div>
@@ -450,29 +610,25 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
           <article className="rounded-[1.75rem] border border-white/75 bg-white/60 p-8 shadow-[0_24px_70px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              Pesquisa
+              {t.researchLabel}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923]">
-              Produção acadêmica com impacto humano.
+              {t.researchTitle}
             </h2>
             <p className="mt-6 text-lg leading-9 text-[#65584d]">
-              Atuação em pesquisa, formação e discussão científica, conectando
-              conhecimento avançado às necessidades concretas de cuidado,
-              prevenção e intervenção.
+              {t.researchText}
             </p>
           </article>
 
           <article className="rounded-[1.75rem] border border-white/75 bg-white/60 p-8 shadow-[0_24px_70px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              Consultoria
+              {t.consultingLabel}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923]">
-              Consultoria técnica para contextos complexos.
+              {t.consultingTitle}
             </h2>
             <p className="mt-6 text-lg leading-9 text-[#65584d]">
-              Apoio especializado para equipes, instituições e projetos que
-              demandam leitura psicológica qualificada, especialmente em crise,
-              família, vínculo e cuidado.
+              {t.consultingText}
             </p>
           </article>
         </div>
@@ -482,15 +638,15 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.72fr_1.28fr]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              FAQ
+              {t.faqLabel}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
-              Perguntas frequentes antes do primeiro contato.
+              {t.faqTitle}
             </h2>
           </div>
 
           <div className="grid gap-4">
-            {faqs.map((faq, index) => (
+            {t.faqs.map((faq, index) => (
               <details
                 key={faq.question}
                 className="group rounded-[1.35rem] border border-white/75 bg-white/62 p-6 shadow-[0_18px_55px_rgba(90,65,42,0.08)] backdrop-blur-xl transition-all duration-300 open:bg-white"
@@ -514,10 +670,10 @@ export default function Home() {
       <section id="contato" className="px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-5xl text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-            Contato
+            {t.contactLabel}
           </p>
           <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-6xl">
-            Um primeiro contato pode ser simples, discreto e acolhedor.
+            {t.contactTitle}
           </h2>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -527,7 +683,7 @@ export default function Home() {
               className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-[#3f332b] px-8 text-sm font-semibold text-white shadow-[0_20px_55px_rgba(63,51,43,0.20)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#8b6b4b] sm:w-auto"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              Chamar no WhatsApp
+              {t.contactWhatsapp}
             </a>
             <a
               href={`mailto:${email}`}
@@ -545,12 +701,12 @@ export default function Home() {
             <p className="font-serif text-2xl text-[#3c3129]">
               Dra. Victoria A. Gómez
             </p>
-            <p className="mt-2">Psicóloga • PhD & Pós-Doutora</p>
+            <p className="mt-2">{t.footerCredentials}</p>
             <p className="mt-1 font-semibold text-[#5f4e42]">CRP 01/19626</p>
           </div>
           <div className="space-y-2">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9a7654]">
-              Contato
+              {t.footerContact}
             </p>
             <a
               href={`mailto:${email}`}
@@ -565,7 +721,7 @@ export default function Home() {
               className="inline-flex items-center gap-2 transition-colors hover:text-[#3f332b]"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              WhatsApp
+              {t.whatsapp}
             </a>
             <a
               href={instagramUrl}
@@ -579,11 +735,11 @@ export default function Home() {
           </div>
           <div className="space-y-2 md:text-right">
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#9a7654]">
-              Atendimento
+              {t.footerCare}
             </p>
-            <p>Online e Presencial</p>
-            <p>Brasil e Internacional</p>
-            <p>Português | Español</p>
+            <p>{t.footerCareMode}</p>
+            <p>{t.international}</p>
+            <p>{t.aboutImageLanguage}</p>
           </div>
         </div>
       </footer>
@@ -592,7 +748,7 @@ export default function Home() {
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Abrir WhatsApp"
+        aria-label={t.floatingWhatsappLabel}
         className="fixed bottom-5 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#4f5a3a] text-white shadow-[0_14px_34px_rgba(54,62,39,0.24)] ring-1 ring-white/45 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#434d32] hover:shadow-[0_18px_42px_rgba(54,62,39,0.28)]"
       >
         <WhatsAppIcon className="h-8 w-8" />
