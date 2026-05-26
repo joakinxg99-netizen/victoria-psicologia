@@ -12,11 +12,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const title = "Dra. Victoria A. Gómez | Psicóloga Clínica";
+const socialDescription =
+  "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente.";
+const description =
+  "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Supervisão clínica, intervenção em crise e atendimento em português e espanhol.";
+const siteUrl = "https://dravictoriagomez.com.br";
+const ogImage = `${siteUrl}/victoria-hero.jpg`;
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dravictoriagomez.com.br"),
-  title: "Dra. Victoria A. Gómez | Psicóloga Clínica",
-  description:
-    "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Supervisão clínica, intervenção em crise e atendimento em português e espanhol.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
   keywords: [
     "psicóloga clínica",
     "psicóloga online",
@@ -32,16 +39,26 @@ export const metadata: Metadata = {
     "Dra Victoria Gomez",
   ],
   openGraph: {
-    title: "Dra. Victoria A. Gómez | Psicóloga Clínica",
-    description:
-      "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Supervisão clínica, intervenção em crise e atendimento em português e espanhol.",
-    url: "https://dravictoriagomez.com.br",
+    title,
+    description: socialDescription,
+    url: siteUrl,
     siteName: "Dra. Victoria A. Gómez",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: ogImage,
+        width: 1200,
+        height: 1800,
+        alt: "Dra. Victoria A. Gómez",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
+    title,
+    description: socialDescription,
+    images: [ogImage],
   },
   robots: {
     index: true,
