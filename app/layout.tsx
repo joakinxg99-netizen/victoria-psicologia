@@ -13,9 +13,40 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dra. Victoria A. Gómez | Psicóloga Clínica Online e Presencial",
+  metadataBase: new URL("https://dravictoriagomez.com.br"),
+  title: "Dra. Victoria A. Gómez | Psicóloga Clínica",
   description:
-    "Psicóloga clínica, PhD e pós-doutora. Atendimento online e presencial no Brasil e internacionalmente, em Português e Español.",
+    "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Supervisão clínica, intervenção em crise e atendimento em português e espanhol.",
+  keywords: [
+    "psicóloga clínica",
+    "psicóloga online",
+    "psicóloga brasil",
+    "psicóloga bilíngue",
+    "psicóloga português espanhol",
+    "terapia casal",
+    "terapia familiar",
+    "supervisão clínica",
+    "intervenção em crise",
+    "saúde mental",
+    "psicoterapia online",
+    "Dra Victoria Gomez",
+  ],
+  openGraph: {
+    title: "Dra. Victoria A. Gómez | Psicóloga Clínica",
+    description:
+      "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Supervisão clínica, intervenção em crise e atendimento em português e espanhol.",
+    url: "https://dravictoriagomez.com.br",
+    siteName: "Dra. Victoria A. Gómez",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
