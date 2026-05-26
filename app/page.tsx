@@ -411,17 +411,6 @@ export default function Home() {
 
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[0.94fr_1.06fr]">
           <div className="max-w-3xl animate-[fadeUp_0.8s_ease-out_both]">
-            <div className="mb-5 inline-flex max-w-2xl items-center gap-3 rounded-2xl border border-[#e5d9c9] bg-white/62 px-4 py-2 text-xs font-semibold uppercase leading-5 tracking-[0.16em] text-[#8b6b4b] shadow-[0_10px_24px_rgba(93,69,45,0.045)] backdrop-blur-xl sm:rounded-full">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#a8845d]" />
-              <span className="hidden sm:inline">
-                {t.heroTrustDesktop}
-              </span>
-              <span className="grid gap-0.5 sm:hidden">
-                <span>{t.heroTrustMobileTop}</span>
-                <span>{t.heroTrustMobileBottom}</span>
-              </span>
-            </div>
-
             <h1 className="font-serif text-5xl font-medium leading-[0.98] tracking-normal text-[#302923] sm:text-6xl lg:text-7xl">
               Dra. Victoria A. Gómez
             </h1>
