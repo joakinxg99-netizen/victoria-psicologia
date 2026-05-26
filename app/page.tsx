@@ -199,6 +199,7 @@ const copy = {
 const whatsappUrl = "https://wa.me/556192868268";
 const instagramUrl = "https://www.instagram.com/victoriagomezpsicologa/";
 const email = "victoria.ayelen.gomez@gmail.com";
+const emailUrl = "mailto:victoria.ayelen.gomez@gmail.com?subject=Contato pelo site";
 
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
@@ -499,14 +500,14 @@ export default function Home() {
                 sizes="(min-width: 1024px) 40vw, 92vw"
                 className="aspect-[4/5] w-full rounded-[1.55rem] object-cover object-[center_18%] saturate-[0.96]"
               />
-            </div>
-            <div className="mt-4 rounded-2xl border border-white/70 bg-white/70 px-5 py-4 text-sm text-[#6f5b48] shadow-[0_14px_36px_rgba(67,49,32,0.08)] backdrop-blur-2xl lg:absolute lg:left-5 lg:top-5 lg:mt-0 lg:bg-white/72 lg:shadow-[0_18px_48px_rgba(67,49,32,0.12)]">
-              <p className="font-serif text-xl text-[#352c25]">
-                {t.aboutImageLanguage}
-              </p>
-              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#9a7654]">
-                {t.international}
-              </p>
+              <div className="absolute bottom-4 left-4 max-w-[calc(100%-2rem)] rounded-2xl border border-white/70 bg-white/72 px-4 py-3 text-sm text-[#6f5b48] shadow-[0_18px_48px_rgba(67,49,32,0.12)] backdrop-blur-2xl sm:bottom-6 sm:left-6 sm:max-w-none sm:px-5 sm:py-4">
+                <p className="font-serif text-xl text-[#352c25]">
+                  {t.aboutImageLanguage}
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-[0.18em] text-[#9a7654]">
+                  {t.international}
+                </p>
+              </div>
             </div>
           </div>
 
@@ -686,7 +687,7 @@ export default function Home() {
               {t.contactWhatsapp}
             </a>
             <a
-              href={`mailto:${email}`}
+              href={emailUrl}
               className="inline-flex min-h-14 w-full items-center justify-center rounded-full border border-[#d9cab8] bg-white/62 px-8 text-sm font-semibold text-[#46382e] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-[#b99a77] hover:bg-white sm:w-auto"
             >
               {email}
@@ -709,7 +710,7 @@ export default function Home() {
               {t.footerContact}
             </p>
             <a
-              href={`mailto:${email}`}
+              href={emailUrl}
               className="block break-words transition-colors hover:text-[#3f332b]"
             >
               {email}
