@@ -13,35 +13,46 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title = "Dra. Victoria A. Gómez | Psicóloga Clínica";
-const socialDescription =
-  "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente.";
+const title =
+  "Dra. Victoria A. Gómez | Psicóloga Clínica | Atendimento no Brasil e Internacional";
 const description =
-  "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Supervisão clínica, intervenção em crise e atendimento em português e espanhol.";
+  "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Consultas online e acompanhamento clínico especializado.";
 const siteUrl = "https://dravictoriagomez.com.br";
+const instagramUrl = "https://www.instagram.com/victoriagomezpsicologa/";
 const ogImage = `${siteUrl}/victoria-hero.jpg`;
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Psychologist",
+  name: "Dra. Victoria A. Gómez",
+  url: siteUrl,
+  email: "victoria.ayelen.gomez@gmail.com",
+  sameAs: [instagramUrl],
+  description,
+  areaServed: ["Brazil", "International"],
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  alternates: {
+    canonical: siteUrl,
+  },
   keywords: [
     "psicóloga clínica",
     "psicóloga online",
-    "psicóloga brasil",
-    "psicóloga bilíngue",
-    "psicóloga português espanhol",
-    "terapia casal",
+    "terapia online brasil",
+    "psicóloga para casais",
+    "atendimento psicológico",
+    "psicóloga internacional",
     "terapia familiar",
-    "supervisão clínica",
-    "intervenção em crise",
+    "psicóloga brasileira",
     "saúde mental",
-    "psicoterapia online",
-    "Dra Victoria Gomez",
+    "psicoterapia",
   ],
   openGraph: {
     title,
-    description: socialDescription,
+    description,
     url: siteUrl,
     siteName: "Dra. Victoria A. Gómez",
     locale: "pt_BR",
@@ -58,7 +69,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title,
-    description: socialDescription,
+    description,
     images: [ogImage],
   },
   robots: {
@@ -80,6 +91,12 @@ export default function RootLayout({
       lang="pt-BR"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <Analytics />
