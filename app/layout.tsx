@@ -13,13 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const title =
-  "Dra. Victoria A. Gómez | Psicóloga Clínica | Atendimento no Brasil e Internacional";
+const title = "Dra. Victoria A. Gómez | Psicóloga Clínica";
 const description =
-  "Psicóloga clínica, PhD e pós-doutora. Atendimento psicológico para pessoas, casais e famílias no Brasil e internacionalmente. Consultas online e acompanhamento clínico especializado.";
+  "Atendimento psicológico no Brasil e internacionalmente para pessoas, casais e famílias.";
 const siteUrl = "https://dravictoriagomez.com.br";
 const instagramUrl = "https://www.instagram.com/victoriagomezpsicologa/";
-const ogImage = `${siteUrl}/victoria-hero.jpg`;
+const ogImage = `${siteUrl}/opengraph-image`;
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Psychologist",
@@ -61,7 +60,7 @@ export const metadata: Metadata = {
       {
         url: ogImage,
         width: 1200,
-        height: 1800,
+        height: 630,
         alt: "Dra. Victoria A. Gómez",
       },
     ],
