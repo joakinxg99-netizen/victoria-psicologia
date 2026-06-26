@@ -103,10 +103,10 @@ const copy = {
     educationTitle:
       "Uma trajetória construída entre clínica, pesquisa e universidade.",
     educationItems: [
-      "Graduação em Psicologia – Universidad Nacional de Córdoba",
-      "Mestrado em Psicologia Social, do Trabalho e das Organizações – Universidade de Brasília",
-      "Doutorado em Psicologia Clínica e Cultura – Universidade de Brasília",
-      "Pós-Doutorado em Saúde Mental e Qualidade de Vida – Universidade de Brasília",
+      "Graduação em Psicologia – Universidad Nacional de Córdoba (Argentina)",
+      "Mestrado em Psicologia Social, do Trabalho e das Organizações – Universidade de Brasília (Brasil)",
+      "Doutorado em Psicologia Clínica e Cultura – Universidade de Brasília (Brasil)",
+      "Pós-Doutorado em Saúde Mental e Qualidade de Vida – Universidade de Brasília (Brasil)",
     ],
     academicLabel: "Atuação Acadêmica",
     academicTitle:
@@ -283,10 +283,10 @@ const copy = {
     educationTitle:
       "Una trayectoria construida entre clínica, investigación y universidad.",
     educationItems: [
-      "Grado en Psicología – Universidad Nacional de Córdoba",
-      "Maestría en Psicología Social, del Trabajo y de las Organizaciones – Universidade de Brasília",
-      "Doctorado en Psicología Clínica y Cultura – Universidade de Brasília",
-      "Posdoctorado en Salud Mental y Calidad de Vida – Universidade de Brasília",
+      "Grado en Psicología – Universidad Nacional de Córdoba (Argentina)",
+      "Maestría en Psicología Social, del Trabajo y de las Organizaciones – Universidade de Brasília (Brasil)",
+      "Doctorado en Psicología Clínica y Cultura – Universidade de Brasília (Brasil)",
+      "Posdoctorado en Salud Mental y Calidad de Vida – Universidade de Brasília (Brasil)",
     ],
     academicLabel: "Actuación Académica",
     academicTitle:
