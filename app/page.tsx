@@ -119,6 +119,47 @@ const copy = {
     areasLabel: "Áreas de atuação",
     areasTitle:
       "Atendimento psicológico para relações, saúde mental e situações complexas.",
+    helpLabel: "Como posso ajudar você?",
+    helpTitle:
+      "Escolha a área que mais se aproxima do momento que você está vivendo.",
+    helpButton: "Saiba mais",
+    helpCards: [
+      {
+        icon: "❤️",
+        title: "Terapia de Casal",
+        description:
+          "Acompanhamento para casais que desejam fortalecer o diálogo, compreender conflitos e reconstruir a relação.",
+        href: "/terapia-de-casal",
+      },
+      {
+        icon: "🌍",
+        title: "Brasileiros no Exterior",
+        description:
+          "Atendimento psicológico online para brasileiros e hispano-falantes que vivem fora do país.",
+        href: "/brasileiros-no-exterior",
+      },
+      {
+        icon: "⚠️",
+        title: "Intervenção em Crise",
+        description:
+          "Apoio psicológico em momentos de sofrimento intenso, mudanças importantes e situações de crise.",
+        href: "/intervencao-em-crise",
+      },
+      {
+        icon: "💼",
+        title: "Saúde Mental no Trabalho",
+        description:
+          "Psicoterapia para questões relacionadas ao trabalho, burnout, estresse e sofrimento ocupacional.",
+        href: "/saude-mental-no-trabalho",
+      },
+      {
+        icon: "👩‍⚕️",
+        title: "Supervisão Clínica",
+        description:
+          "Supervisão para psicólogos e profissionais em formação clínica.",
+        href: "/supervisao-clinica",
+      },
+    ],
     supervisionLabel: "Supervisão",
     supervisionTitle:
       "Supervisão clínica para profissionais em desenvolvimento.",
@@ -298,6 +339,47 @@ const copy = {
     areasLabel: "Áreas de actuación",
     areasTitle:
       "Atención psicológica para relaciones, salud mental y situaciones complejas.",
+    helpLabel: "¿Cómo puedo ayudarte?",
+    helpTitle:
+      "Elige el área que más se aproxima al momento que estás viviendo.",
+    helpButton: "Saber más",
+    helpCards: [
+      {
+        icon: "❤️",
+        title: "Terapia de Pareja",
+        description:
+          "Acompañamiento para parejas que desean fortalecer el diálogo, comprender conflictos y reconstruir la relación.",
+        href: "/terapia-de-casal",
+      },
+      {
+        icon: "🌍",
+        title: "Brasileños en el Exterior",
+        description:
+          "Atención psicológica online para brasileños e hispanohablantes que viven fuera del país.",
+        href: "/brasileiros-no-exterior",
+      },
+      {
+        icon: "⚠️",
+        title: "Intervención en Crisis",
+        description:
+          "Apoyo psicológico en momentos de sufrimiento intenso, cambios importantes y situaciones de crisis.",
+        href: "/intervencao-em-crise",
+      },
+      {
+        icon: "💼",
+        title: "Salud Mental en el Trabajo",
+        description:
+          "Psicoterapia para cuestiones relacionadas con el trabajo, burnout, estrés y sufrimiento ocupacional.",
+        href: "/saude-mental-no-trabalho",
+      },
+      {
+        icon: "👩‍⚕️",
+        title: "Supervisión Clínica",
+        description:
+          "Supervisión para psicólogos y profesionales en formación clínica.",
+        href: "/supervisao-clinica",
+      },
+    ],
     supervisionLabel: "Supervisión",
     supervisionTitle:
       "Supervisión clínica para profesionales en desarrollo.",
@@ -816,6 +898,47 @@ export default function Home() {
                   {area.description}
                 </p>
                 <div className="mt-8 h-px w-full bg-gradient-to-r from-[#d8c2a3] to-transparent" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="como-posso-ajudar" className="px-5 py-20 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
+              {t.helpLabel}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
+              {t.helpTitle}
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+            {t.helpCards.map((card) => (
+              <article
+                key={card.href}
+                className="group flex min-h-[17rem] flex-col rounded-[1.5rem] border border-white/75 bg-white/60 p-6 shadow-[0_22px_65px_rgba(90,65,42,0.08)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white hover:shadow-[0_30px_80px_rgba(90,65,42,0.13)]"
+              >
+                <span
+                  aria-hidden="true"
+                  className="flex h-12 w-12 items-center justify-center rounded-full bg-[#efe4d5] text-xl transition-transform duration-300 group-hover:scale-105"
+                >
+                  {card.icon}
+                </span>
+                <h3 className="mt-6 font-serif text-2xl leading-tight text-[#352c25]">
+                  {card.title}
+                </h3>
+                <p className="mt-4 flex-1 text-sm leading-7 text-[#6f6258]">
+                  {card.description}
+                </p>
+                <a
+                  href={card.href}
+                  className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full border border-[#d9cab8] bg-white/56 px-5 text-sm font-semibold text-[#46382e] shadow-[0_10px_26px_rgba(86,62,40,0.04)] backdrop-blur-xl transition-all duration-300 hover:border-[#b99a77] hover:bg-white"
+                >
+                  {t.helpButton}
+                </a>
               </article>
             ))}
           </div>
