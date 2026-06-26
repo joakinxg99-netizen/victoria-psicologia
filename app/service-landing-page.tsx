@@ -1,4 +1,9 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+
+type Lang = "pt" | "es";
 
 const whatsappUrl = "https://wa.me/556192868268";
 const instagramUrl = "https://www.instagram.com/victoriagomezpsicologa/";
@@ -45,6 +50,38 @@ export type ServiceLandingPageConfig = {
   contactText: string;
 };
 
+export type BilingualServiceLandingPageConfig = Record<
+  Lang,
+  ServiceLandingPageConfig
+>;
+
+const uiCopy = {
+  pt: {
+    brandSubtitle: "Psicologia Clínica",
+    navPrimary: "Para quem",
+    navProcess: "Como funciona",
+    schedule: "Agendar consulta",
+    understand: "Entender o processo",
+    otherAreas: "Outras áreas",
+    home: "Página inicial",
+    faqTitle: "Perguntas frequentes.",
+    contactEyebrow: "Atendimento presencial e online",
+    openWhatsApp: "Abrir WhatsApp",
+  },
+  es: {
+    brandSubtitle: "Psicología Clínica",
+    navPrimary: "Para quién",
+    navProcess: "Cómo funciona",
+    schedule: "Agendar consulta",
+    understand: "Entender el proceso",
+    otherAreas: "Otras áreas",
+    home: "Página inicial",
+    faqTitle: "Preguntas frecuentes.",
+    contactEyebrow: "Atención presencial y online",
+    openWhatsApp: "Abrir WhatsApp",
+  },
+} satisfies Record<Lang, Record<string, string>>;
+
 function WhatsAppIcon({ className = "" }: { className?: string }) {
   return (
     <svg
@@ -77,7 +114,58 @@ function InstagramIcon({ className = "" }: { className?: string }) {
   );
 }
 
-export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfig }) {
+function LanguageToggle({
+  className = "",
+  lang,
+  setLang,
+}: {
+  className?: string;
+  lang: Lang;
+  setLang: (lang: Lang) => void;
+}) {
+  return (
+    <div
+      aria-label="Selecionar idioma"
+      className={`inline-flex items-center rounded-full border border-[#e1d3c1] bg-white/46 p-1 text-[0.68rem] font-semibold tracking-[0.18em] text-[#7a6654] shadow-[0_10px_26px_rgba(86,62,40,0.045)] backdrop-blur-xl ${className}`}
+    >
+      <button
+        type="button"
+        onClick={() => setLang("pt")}
+        aria-pressed={lang === "pt"}
+        className={`rounded-full px-3 py-2 transition-colors duration-300 ${
+          lang === "pt"
+            ? "bg-[#3f332b] text-white shadow-[0_8px_18px_rgba(63,51,43,0.12)]"
+            : "hover:bg-white/72 hover:text-[#3f332b]"
+        }`}
+      >
+        PT
+      </button>
+      <span className="px-1 text-[#c4ad95]">|</span>
+      <button
+        type="button"
+        onClick={() => setLang("es")}
+        aria-pressed={lang === "es"}
+        className={`rounded-full px-3 py-2 transition-colors duration-300 ${
+          lang === "es"
+            ? "bg-[#3f332b] text-white shadow-[0_8px_18px_rgba(63,51,43,0.12)]"
+            : "hover:bg-white/72 hover:text-[#3f332b]"
+        }`}
+      >
+        ES
+      </button>
+    </div>
+  );
+}
+
+export function ServiceLandingPage({
+  config,
+}: {
+  config: BilingualServiceLandingPageConfig;
+}) {
+  const [lang, setLang] = useState<Lang>("pt");
+  const t = config[lang];
+  const ui = uiCopy[lang];
+
   return (
     <main className="min-h-screen scroll-smooth bg-[#fbf8f3] text-[#302923] selection:bg-[#d8c2a3]/40">
       <nav className="fixed left-0 right-0 top-0 z-50 border-b border-white/55 bg-[#fbf8f3]/76 shadow-[0_10px_34px_rgba(70,48,28,0.045)] backdrop-blur-2xl">
@@ -87,22 +175,22 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
               VICTORIA
             </span>
             <span className="text-[0.62rem] uppercase tracking-[0.32em] text-[#9a846c]">
-              Psicologia Clínica
+              {ui.brandSubtitle}
             </span>
           </a>
 
           <div className="hidden items-center gap-7 rounded-full border border-white/70 bg-white/45 px-7 py-3 shadow-[0_14px_46px_rgba(96,70,45,0.06)] backdrop-blur-xl md:flex">
             <a
-              href={`#${config.primarySection.id}`}
+              href={`#${t.primarySection.id}`}
               className="text-sm font-medium text-[#6e5f52] transition-colors hover:text-[#2f2822]"
             >
-              Para quem
+              {ui.navPrimary}
             </a>
             <a
               href="#como-funciona"
               className="text-sm font-medium text-[#6e5f52] transition-colors hover:text-[#2f2822]"
             >
-              Como funciona
+              {ui.navProcess}
             </a>
             <a
               href="#faq"
@@ -112,15 +200,18 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
             </a>
           </div>
 
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-[#3f332b] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(63,51,43,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7f654c] hover:shadow-[0_18px_44px_rgba(86,62,40,0.18)]"
-          >
-            <WhatsAppIcon className="h-4 w-4" />
-            Agendar consulta
-          </a>
+          <div className="flex items-center gap-2">
+            <LanguageToggle lang={lang} setLang={setLang} />
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden items-center gap-2 rounded-full bg-[#3f332b] px-5 py-3 text-sm font-semibold text-white shadow-[0_14px_34px_rgba(63,51,43,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7f654c] hover:shadow-[0_18px_44px_rgba(86,62,40,0.18)] sm:inline-flex"
+            >
+              <WhatsAppIcon className="h-4 w-4" />
+              {ui.schedule}
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -129,16 +220,16 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
         <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              {config.eyebrow}
+              {t.eyebrow}
             </p>
             <h1 className="mt-4 font-serif text-5xl font-medium leading-[0.98] tracking-normal text-[#302923] sm:text-6xl lg:text-7xl">
-              {config.title}
+              {t.title}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-[#65584d] sm:text-xl sm:leading-9">
-              {config.subtitle}
+              {t.subtitle}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              {config.chips.map((item) => (
+              {t.chips.map((item) => (
                 <span
                   key={item}
                   className="rounded-full border border-[#e5d9c9] bg-white/60 px-4 py-2 text-sm text-[#6f5b48] shadow-sm backdrop-blur-xl"
@@ -155,13 +246,13 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
                 className="inline-flex min-h-14 items-center justify-center gap-2 rounded-full bg-[#3f332b] px-8 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(63,51,43,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7f654c] hover:shadow-[0_20px_48px_rgba(86,62,40,0.18)]"
               >
                 <WhatsAppIcon className="h-4 w-4" />
-                Agendar consulta
+                {ui.schedule}
               </a>
               <a
                 href="#como-funciona"
                 className="inline-flex min-h-14 items-center justify-center rounded-full border border-[#d9cab8] bg-white/56 px-8 text-sm font-semibold text-[#46382e] shadow-[0_10px_26px_rgba(86,62,40,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b99a77] hover:bg-white"
               >
-                Entender o processo
+                {ui.understand}
               </a>
             </div>
           </div>
@@ -186,20 +277,20 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
       </section>
 
       <section
-        id={config.primarySection.id}
+        id={t.primarySection.id}
         className="px-5 py-20 sm:px-8 lg:px-10"
       >
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 max-w-3xl">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              {config.primarySection.label}
+              {t.primarySection.label}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
-              {config.primarySection.title}
+              {t.primarySection.title}
             </h2>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {config.primarySection.items.map((item, index) => (
+            {t.primarySection.items.map((item, index) => (
               <article
                 key={item}
                 className="group relative overflow-hidden rounded-[1.35rem] border border-white/75 bg-white/60 p-6 shadow-[0_18px_55px_rgba(90,65,42,0.075)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_26px_70px_rgba(90,65,42,0.12)]"
@@ -216,19 +307,19 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
         </div>
       </section>
 
-      <section id={config.secondarySection.id} className="px-5 py-16 sm:px-8 lg:px-10">
+      <section id={t.secondarySection.id} className="px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/75 bg-white/58 p-8 shadow-[0_26px_80px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-10 lg:p-12">
           <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-                {config.secondarySection.label}
+                {t.secondarySection.label}
               </p>
               <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
-                {config.secondarySection.title}
+                {t.secondarySection.title}
               </h2>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {config.secondarySection.items.map((item) => (
+              {t.secondarySection.items.map((item) => (
                 <article
                   key={item}
                   className="rounded-[1.25rem] border border-[#eadfce] bg-[#fffaf4]/70 p-5 text-base leading-7 text-[#65584d] shadow-[0_14px_42px_rgba(90,65,42,0.055)] transition-all duration-300 hover:-translate-y-1 hover:bg-white"
@@ -245,30 +336,30 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
         <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-2">
           <article className="rounded-[1.75rem] border border-white/75 bg-white/62 p-8 shadow-[0_24px_70px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-              {config.processSection.label}
+              {t.processSection.label}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923]">
-              {config.processSection.title}
+              {t.processSection.title}
             </h2>
             <p className="mt-6 text-lg leading-9 text-[#65584d]">
-              {config.processSection.text}
+              {t.processSection.text}
             </p>
-            {config.processSection.disclaimer ? (
+            {t.processSection.disclaimer ? (
               <p className="mt-5 rounded-2xl border border-[#eadfce] bg-[#fffaf4]/80 p-4 text-sm leading-7 text-[#7a6654]">
-                {config.processSection.disclaimer}
+                {t.processSection.disclaimer}
               </p>
             ) : null}
           </article>
 
           <article className="rounded-[1.75rem] border border-white/75 bg-[#3f332b] p-8 text-white shadow-[0_28px_86px_rgba(63,51,43,0.18)] sm:p-10">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#d8c2a3]">
-              {config.authoritySection.label}
+              {t.authoritySection.label}
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight">
-              {config.authoritySection.title}
+              {t.authoritySection.title}
             </h2>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {config.authoritySection.items.map((item) => (
+              {t.authoritySection.items.map((item) => (
                 <div
                   key={item}
                   className="rounded-2xl border border-white/12 bg-white/[0.06] p-4 text-sm leading-6 text-[#eadfce] backdrop-blur-xl"
@@ -284,16 +375,16 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
       <section className="px-5 py-16 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-            Outras áreas
+            {ui.otherAreas}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
             <a
               href="/"
               className="inline-flex min-h-11 items-center justify-center rounded-full border border-[#d9cab8] bg-white/56 px-5 text-sm font-semibold text-[#46382e] shadow-[0_10px_26px_rgba(86,62,40,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b99a77] hover:bg-white"
             >
-              Página inicial
+              {ui.home}
             </a>
-            {config.relatedLinks.map((link) => (
+            {t.relatedLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -313,12 +404,12 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
               FAQ
             </p>
             <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
-              Perguntas frequentes.
+              {ui.faqTitle}
             </h2>
           </div>
 
           <div className="grid gap-4">
-            {config.faqs.map((faq, index) => (
+            {t.faqs.map((faq, index) => (
               <details
                 key={faq.question}
                 className="group rounded-[1.35rem] border border-white/75 bg-white/62 p-6 shadow-[0_18px_55px_rgba(90,65,42,0.08)] backdrop-blur-xl transition-all duration-300 open:bg-white"
@@ -342,13 +433,13 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
       <section id="contato" className="px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-5xl rounded-[2rem] border border-white/75 bg-white/62 p-8 text-center shadow-[0_26px_80px_rgba(90,65,42,0.10)] backdrop-blur-xl sm:p-12">
           <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
-            Atendimento presencial e online
+            {ui.contactEyebrow}
           </p>
           <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-6xl">
-            {config.contactTitle}
+            {t.contactTitle}
           </h2>
           <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#65584d] sm:text-lg">
-            {config.contactText}
+            {t.contactText}
           </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -384,7 +475,7 @@ export function ServiceLandingPage({ config }: { config: ServiceLandingPageConfi
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Abrir WhatsApp"
+        aria-label={ui.openWhatsApp}
         className="fixed bottom-5 right-5 z-50 flex h-16 w-16 items-center justify-center rounded-full bg-[#4f5a3a] text-white shadow-[0_14px_34px_rgba(54,62,39,0.24)] ring-1 ring-white/45 transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-[#434d32] hover:shadow-[0_18px_42px_rgba(54,62,39,0.28)]"
       >
         <WhatsAppIcon className="h-8 w-8" />
