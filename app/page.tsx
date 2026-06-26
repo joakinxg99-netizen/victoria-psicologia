@@ -79,6 +79,26 @@ const copy = {
       "Uma prática clínica guiada por ciência, presença e precisão.",
     aboutText:
       "Acredito que cada pessoa possui uma história única e merece ser escutada com respeito, sensibilidade e responsabilidade técnica. Minha atuação busca integrar conhecimento científico, experiência clínica e cuidado genuíno para ajudar cada paciente a compreender seu sofrimento e construir novas possibilidades de vida.",
+    psychotherapyLabel: "Como é a psicoterapia?",
+    psychotherapyTitle:
+      "Um espaço clínico de escuta, acolhimento e transformação.",
+    psychotherapyText:
+      "A psicoterapia é um espaço de escuta, acolhimento e transformação, construído de forma ética e baseada em evidências científicas. O trabalho clínico integra conhecimento científico, experiência profissional e atenção à singularidade de cada pessoa, casal ou família.",
+    psychotherapyForLabel: "Para quem é a psicoterapia?",
+    psychotherapyForTitle:
+      "Psicoterapia online e presencial para diferentes momentos da vida.",
+    psychotherapyForItems: [
+      "Pessoas vivendo ansiedade",
+      "Depressão",
+      "Conflitos familiares",
+      "Casais em crise",
+      "Baixa autoestima",
+      "Violência doméstica",
+      "Burnout",
+      "Dependência emocional",
+      "Crises emocionais",
+      "Dependência química",
+    ],
     educationLabel: "Formação Acadêmica",
     educationTitle:
       "Uma trajetória construída entre clínica, pesquisa e universidade.",
@@ -152,8 +172,9 @@ const copy = {
       },
     ],
     contactLabel: "Contato",
-    contactTitle:
-      "Um primeiro contato pode ser simples, discreto e acolhedor.",
+    contactTitle: "Agende seu atendimento",
+    contactSupport:
+      "Atendimento presencial em Brasília e online para todo o Brasil e brasileiros no exterior.",
     contactWhatsapp: "Chamar no WhatsApp",
     footerCredentials: "Psicóloga • PhD & Pós-Doutora",
     footerContact: "Contato",
@@ -238,6 +259,26 @@ const copy = {
       "Una práctica clínica guiada por ciencia, presencia y precisión.",
     aboutText:
       "Creo que cada persona posee una historia única y merece ser escuchada con respeto, sensibilidad y responsabilidad técnica. Mi práctica busca integrar conocimiento científico, experiencia clínica y cuidado genuino para ayudar a cada paciente a comprender su sufrimiento y construir nuevas posibilidades de vida.",
+    psychotherapyLabel: "¿Cómo es la psicoterapia?",
+    psychotherapyTitle:
+      "Un espacio clínico de escucha, acogida y transformación.",
+    psychotherapyText:
+      "La psicoterapia es un espacio de escucha, acogida y transformación, construido de forma ética y basado en evidencias científicas. El trabajo clínico integra conocimiento científico, experiencia profesional y atención a la singularidad de cada persona, pareja o familia.",
+    psychotherapyForLabel: "¿Para quién es la psicoterapia?",
+    psychotherapyForTitle:
+      "Psicoterapia online y presencial para diferentes momentos de la vida.",
+    psychotherapyForItems: [
+      "Personas viviendo ansiedad",
+      "Depresión",
+      "Conflictos familiares",
+      "Parejas en crisis",
+      "Baja autoestima",
+      "Violencia doméstica",
+      "Burnout",
+      "Dependencia emocional",
+      "Crisis emocionales",
+      "Dependencia química",
+    ],
     educationLabel: "Formación Académica",
     educationTitle:
       "Una trayectoria construida entre clínica, investigación y universidad.",
@@ -311,8 +352,9 @@ const copy = {
       },
     ],
     contactLabel: "Contacto",
-    contactTitle:
-      "Un primer contacto puede ser simple, discreto y acogedor.",
+    contactTitle: "Agenda tu atención",
+    contactSupport:
+      "Atención presencial en Brasília y online para todo Brasil y brasileños en el exterior.",
     contactWhatsapp: "Escribir por WhatsApp",
     footerCredentials: "Psicóloga • PhD & Posdoctora",
     footerContact: "Contacto",
@@ -650,6 +692,49 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="psicoterapia" className="px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.95fr_1.05fr]">
+          <article className="rounded-[1.75rem] border border-white/75 bg-white/62 p-8 shadow-[0_24px_70px_rgba(90,65,42,0.08)] backdrop-blur-xl sm:p-10">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
+              {t.psychotherapyLabel}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
+              {t.psychotherapyTitle}
+            </h2>
+          </article>
+
+          <article className="rounded-[1.75rem] border border-white/75 bg-[#fffaf4]/70 p-8 shadow-[0_24px_70px_rgba(90,65,42,0.075)] backdrop-blur-xl sm:p-10">
+            <p className="text-lg leading-9 text-[#65584d]">
+              {t.psychotherapyText}
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="para-quem" className="px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 max-w-3xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
+              {t.psychotherapyForLabel}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
+              {t.psychotherapyForTitle}
+            </h2>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {t.psychotherapyForItems.map((item) => (
+              <article
+                key={item}
+                className="rounded-2xl border border-white/75 bg-white/60 px-5 py-4 text-sm font-medium leading-6 text-[#65584d] shadow-[0_14px_42px_rgba(90,65,42,0.06)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:text-[#352c25]"
+              >
+                {item}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section id="formacao" className="px-5 py-20 sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <div className="max-w-xl">
@@ -857,6 +942,9 @@ export default function Home() {
           <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-6xl">
             {t.contactTitle}
           </h2>
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#65584d] sm:text-lg">
+            {t.contactSupport}
+          </p>
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={whatsappUrl}
