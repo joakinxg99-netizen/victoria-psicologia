@@ -97,7 +97,6 @@ const copy = {
       "Burnout",
       "Dependência emocional",
       "Crises emocionais",
-      "Dependência química",
     ],
     educationLabel: "Formação Acadêmica",
     educationTitle:
@@ -277,7 +276,6 @@ const copy = {
       "Burnout",
       "Dependencia emocional",
       "Crisis emocionales",
-      "Dependencia química",
     ],
     educationLabel: "Formación Académica",
     educationTitle:
