@@ -10,6 +10,7 @@ const copy = {
     brandSubtitle: "Psicologia Clínica",
     navItems: [
       { label: "Sobre", href: "#sobre" },
+      { label: "Formação", href: "#formacao" },
       { label: "Atuação", href: "#atuacao" },
       { label: "Supervisão", href: "#supervisao" },
       { label: "Pesquisa", href: "#pesquisa" },
@@ -18,46 +19,57 @@ const copy = {
     ],
     areas: [
       {
-        title: "Intervenção em crise",
+        title: "Relacionamentos",
         description:
-          "Atendimento psicológico especializado para momentos de sofrimento agudo, instabilidade emocional e demandas urgentes de saúde mental.",
+          "Acompanhamento clínico para compreender vínculos, padrões afetivos e formas mais saudáveis de se relacionar.",
       },
       {
-        title: "Psicoterapia individual",
+        title: "Terapia de Casal",
         description:
-          "Terapia online e presencial para pessoas que buscam autoconhecimento, cuidado clínico e acompanhamento em saúde mental.",
+          "Terapia de casal em Brasília e online para conflitos, comunicação, reconstrução de confiança e decisões difíceis.",
       },
       {
-        title: "Casal & Família",
+        title: "Saúde Mental no Trabalho",
         description:
-          "Terapia para casais e terapia familiar com escuta qualificada para conflitos, vínculos, comunicação e reorganização das relações.",
+          "Cuidado para sofrimento psíquico relacionado ao trabalho, esgotamento, conflitos institucionais e qualidade de vida.",
       },
       {
-        title: "Supervisão clínica",
+        title: "Ansiedade",
         description:
-          "Supervisão clínica para psicólogas e psicólogos que desejam aprofundar manejo técnico, leitura de caso e segurança ética.",
+          "Psicoterapia para ansiedade, sobrecarga emocional, insegurança e dificuldades de regulação no cotidiano.",
       },
       {
-        title: "Saúde mental institucional",
+        title: "Depressão",
         description:
-          "Consultoria em saúde mental para instituições, equipes e projetos que lidam com cuidado, crise e relações humanas complexas.",
+          "Atendimento psicológico para tristeza persistente, perda de sentido, isolamento e sofrimento emocional prolongado.",
       },
       {
-        title: "Consultoria técnica",
+        title: "Intervenção em Crise",
         description:
-          "Apoio técnico para contextos clínicos, familiares e institucionais que exigem análise psicológica rigorosa e intervenção qualificada.",
+          "Acolhimento técnico e sensível para situações de crise, risco, ruptura, violência e sofrimento agudo.",
+      },
+      {
+        title: "Relacionamentos Abusivos e Violência Doméstica",
+        description:
+          "Atendimento especializado para violência doméstica, vínculos abusivos e reconstrução de autonomia com cuidado ético.",
       },
     ],
-    credentials: ["Psicóloga", "PhD & Pós-Doutora", "CRP 01/19626"],
-    topCta: "Agendar Consulta",
+    credentials: [
+      "Psicóloga Clínica",
+      "Doutora em Psicologia Clínica e Cultura (UnB)",
+      "CRP 01/19626",
+    ],
+    topCta: "Agendar consulta",
     mobileNavLabel: "Abrir navegação",
-    whatsappCta: "Agendar pelo WhatsApp",
+    whatsappCta: "Agendar consulta",
     heroTrustDesktop:
       "CRP 01/19626 • Brasil e Internacional • Português | Español",
     heroTrustMobileTop: "CRP 01/19626 • Brasil e Internacional",
     heroTrustMobileBottom: "Português | Español",
     heroParagraph:
-      "Psicóloga clínica com atendimento psicológico online e presencial para pessoas, casais e famílias, no Brasil e internacionalmente, com foco em saúde mental, escuta qualificada e cuidado humanizado.",
+      "Psicoterapia para adultos, casais e famílias com base científica, experiência clínica e atuação em casos complexos.",
+    heroSupport:
+      "Atendimento presencial em Brasília e online para todo o Brasil e brasileiros no exterior.",
     secondaryCta: "Conhecer abordagem",
     heroImageBadge: "Clínica • Ensino • Pesquisa",
     aboutLabel: "Sobre",
@@ -66,10 +78,28 @@ const copy = {
     aboutTitle:
       "Uma prática clínica guiada por ciência, presença e precisão.",
     aboutText:
-      "Dra. Victoria A. Gómez é psicóloga, PhD e pós-doutora, CRP 01/19626. Sua trajetória integra clínica, docência universitária, supervisão profissional e produção de conhecimento, oferecendo um espaço de cuidado reservado, bilíngue e profundamente atento às singularidades de cada pessoa, casal ou família, no Brasil e internacionalmente.",
+      "Acredito que cada pessoa possui uma história única e merece ser escutada com respeito, sensibilidade e responsabilidade técnica. Minha atuação busca integrar conhecimento científico, experiência clínica e cuidado genuíno para ajudar cada paciente a compreender seu sofrimento e construir novas possibilidades de vida.",
+    educationLabel: "Formação Acadêmica",
+    educationTitle:
+      "Uma trajetória construída entre clínica, pesquisa e universidade.",
+    educationItems: [
+      "Graduação em Psicologia – Universidad Nacional de Córdoba",
+      "Mestrado em Psicologia Social, do Trabalho e das Organizações – Universidade de Brasília",
+      "Doutorado em Psicologia Clínica e Cultura – Universidade de Brasília",
+      "Pós-Doutorado em Saúde Mental e Qualidade de Vida – Universidade de Brasília",
+    ],
+    academicLabel: "Atuação Acadêmica",
+    academicTitle:
+      "Ensino, supervisão e pesquisa como extensões da prática clínica.",
+    academicItems: [
+      "Professora universitária",
+      "Supervisora clínica de estágios em Psicologia",
+      "Supervisora da Psicoterapia de Casal e Família na Clínica-Escola do Centro Universitário UDF",
+      "Pesquisadora em Psicologia Clínica, Saúde Mental e Cultura",
+    ],
     areasLabel: "Áreas de atuação",
     areasTitle:
-      "Atendimento psicológico especializado em terapia online, casais, famílias e saúde mental.",
+      "Atendimento psicológico para relações, saúde mental e situações complexas.",
     supervisionLabel: "Supervisão",
     supervisionTitle:
       "Supervisão clínica para profissionais em desenvolvimento.",
@@ -139,6 +169,7 @@ const copy = {
     brandSubtitle: "Psicología Clínica",
     navItems: [
       { label: "Sobre", href: "#sobre" },
+      { label: "Formación", href: "#formacao" },
       { label: "Áreas", href: "#atuacao" },
       { label: "Supervisión", href: "#supervisao" },
       { label: "Investigación", href: "#pesquisa" },
@@ -147,46 +178,57 @@ const copy = {
     ],
     areas: [
       {
-        title: "Intervención en crisis",
+        title: "Relaciones",
         description:
-          "Atención psicológica especializada para momentos de sufrimiento agudo, inestabilidad emocional y demandas urgentes de salud mental.",
+          "Acompañamiento clínico para comprender vínculos, patrones afectivos y formas más saludables de relacionarse.",
       },
       {
-        title: "Psicoterapia individual",
+        title: "Terapia de Pareja",
         description:
-          "Terapia online y presencial para personas que buscan autoconocimiento, cuidado clínico y acompañamiento en salud mental.",
+          "Terapia de pareja en Brasília y online para conflictos, comunicación, reconstrucción de confianza y decisiones difíciles.",
       },
       {
-        title: "Pareja & Familia",
+        title: "Salud Mental en el Trabajo",
         description:
-          "Terapia para parejas y terapia familiar con escucha calificada para conflictos, vínculos, comunicación y reorganización relacional.",
+          "Cuidado para el sufrimiento psíquico relacionado con el trabajo, agotamiento, conflictos institucionales y calidad de vida.",
       },
       {
-        title: "Supervisión clínica",
+        title: "Ansiedad",
         description:
-          "Supervisión clínica para psicólogas y psicólogos que desean profundizar manejo técnico, lectura de caso y seguridad ética.",
+          "Psicoterapia para ansiedad, sobrecarga emocional, inseguridad y dificultades de regulación en la vida cotidiana.",
       },
       {
-        title: "Salud mental institucional",
+        title: "Depresión",
         description:
-          "Consultoría en salud mental para instituciones, equipos y proyectos que trabajan con cuidado, crisis y relaciones humanas complejas.",
+          "Atención psicológica para tristeza persistente, pérdida de sentido, aislamiento y sufrimiento emocional prolongado.",
       },
       {
-        title: "Consultoría técnica",
+        title: "Intervención en Crisis",
         description:
-          "Apoyo técnico para contextos clínicos, familiares e institucionales que requieren análisis psicológico riguroso e intervención calificada.",
+          "Acogida técnica y sensible para situaciones de crisis, riesgo, ruptura, violencia y sufrimiento agudo.",
+      },
+      {
+        title: "Relaciones Abusivas y Violencia Doméstica",
+        description:
+          "Atención especializada para violencia doméstica, vínculos abusivos y reconstrucción de autonomía con cuidado ético.",
       },
     ],
-    credentials: ["Psicóloga", "PhD & Posdoctora", "CRP 01/19626"],
-    topCta: "Agendar Consulta",
+    credentials: [
+      "Psicóloga Clínica",
+      "Doctora en Psicología Clínica y Cultura (UnB)",
+      "CRP 01/19626",
+    ],
+    topCta: "Agendar consulta",
     mobileNavLabel: "Abrir navegación",
-    whatsappCta: "Agendar por WhatsApp",
+    whatsappCta: "Agendar consulta",
     heroTrustDesktop:
       "CRP 01/19626 • Brasil e Internacional • Português | Español",
     heroTrustMobileTop: "CRP 01/19626 • Brasil e Internacional",
     heroTrustMobileBottom: "Português | Español",
     heroParagraph:
-      "Psicóloga clínica con atención psicológica online y presencial para personas, parejas y familias, en Brasil e internacionalmente, con foco en salud mental, escucha calificada y cuidado humanizado.",
+      "Psicoterapia para adultos, parejas y familias con base científica, experiencia clínica y actuación en casos complejos.",
+    heroSupport:
+      "Atención presencial en Brasília y online para todo Brasil y brasileños en el exterior.",
     secondaryCta: "Conocer el enfoque",
     heroImageBadge: "Clínica • Docencia • Investigación",
     aboutLabel: "Sobre",
@@ -195,10 +237,28 @@ const copy = {
     aboutTitle:
       "Una práctica clínica guiada por ciencia, presencia y precisión.",
     aboutText:
-      "Dra. Victoria A. Gómez es psicóloga, PhD y posdoctora, CRP 01/19626. Su trayectoria integra clínica, docencia universitaria, supervisión profesional y producción de conocimiento, ofreciendo un espacio de cuidado reservado, bilingüe y profundamente atento a las singularidades de cada persona, pareja o familia, en Brasil e internacionalmente.",
+      "Creo que cada persona posee una historia única y merece ser escuchada con respeto, sensibilidad y responsabilidad técnica. Mi práctica busca integrar conocimiento científico, experiencia clínica y cuidado genuino para ayudar a cada paciente a comprender su sufrimiento y construir nuevas posibilidades de vida.",
+    educationLabel: "Formación Académica",
+    educationTitle:
+      "Una trayectoria construida entre clínica, investigación y universidad.",
+    educationItems: [
+      "Grado en Psicología – Universidad Nacional de Córdoba",
+      "Maestría en Psicología Social, del Trabajo y de las Organizaciones – Universidade de Brasília",
+      "Doctorado en Psicología Clínica y Cultura – Universidade de Brasília",
+      "Posdoctorado en Salud Mental y Calidad de Vida – Universidade de Brasília",
+    ],
+    academicLabel: "Actuación Académica",
+    academicTitle:
+      "Docencia, supervisión e investigación como extensiones de la práctica clínica.",
+    academicItems: [
+      "Profesora universitaria",
+      "Supervisora clínica de prácticas en Psicología",
+      "Supervisora de Psicoterapia de Pareja y Familia en la Clínica-Escuela del Centro Universitario UDF",
+      "Investigadora en Psicología Clínica, Salud Mental y Cultura",
+    ],
     areasLabel: "Áreas de actuación",
     areasTitle:
-      "Atención psicológica especializada en terapia online, parejas, familias y salud mental.",
+      "Atención psicológica para relaciones, salud mental y situaciones complejas.",
     supervisionLabel: "Supervisión",
     supervisionTitle:
       "Supervisión clínica para profesionales en desarrollo.",
@@ -500,6 +560,10 @@ export default function Home() {
               {t.heroParagraph}
             </p>
 
+            <p className="mt-4 max-w-2xl text-base font-medium leading-7 text-[#7a6654] sm:text-lg">
+              {t.heroSupport}
+            </p>
+
             <div className="mt-7 flex flex-col gap-3 sm:flex-row">
               <a
                 href={whatsappUrl}
@@ -581,6 +645,61 @@ export default function Home() {
               <p className="text-lg leading-9 text-[#65584d]">
                 {t.aboutText}
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="formacao" className="px-5 py-20 sm:px-8 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div className="max-w-xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
+              {t.educationLabel}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
+              {t.educationTitle}
+            </h2>
+          </div>
+
+          <div className="grid gap-4">
+            {t.educationItems.map((item, index) => (
+              <article
+                key={item}
+                className="group grid gap-4 rounded-[1.5rem] border border-white/75 bg-white/60 p-6 shadow-[0_20px_60px_rgba(90,65,42,0.075)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-[0_26px_72px_rgba(90,65,42,0.12)] sm:grid-cols-[4rem_1fr] sm:items-center"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#efe4d5] font-serif text-lg text-[#8b6b4b] transition-colors group-hover:bg-[#3f332b] group-hover:text-white">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-serif text-xl leading-snug text-[#352c25] sm:text-2xl">
+                  {item}
+                </h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="academica" className="px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-white/75 bg-white/58 p-8 shadow-[0_26px_80px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-10 lg:p-12">
+          <div className="grid gap-10 lg:grid-cols-[0.88fr_1.12fr] lg:items-start">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
+                {t.academicLabel}
+              </p>
+              <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
+                {t.academicTitle}
+              </h2>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {t.academicItems.map((item) => (
+                <article
+                  key={item}
+                  className="rounded-[1.25rem] border border-[#eadfce] bg-[#fffaf4]/70 p-5 text-base leading-7 text-[#65584d] shadow-[0_14px_42px_rgba(90,65,42,0.055)] transition-all duration-300 hover:-translate-y-1 hover:bg-white"
+                >
+                  {item}
+                </article>
+              ))}
             </div>
           </div>
         </div>
