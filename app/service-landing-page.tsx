@@ -61,7 +61,12 @@ const uiCopy = {
     navPrimary: "Para quem",
     navProcess: "Como funciona",
     schedule: "Agendar consulta",
+    talkWhatsApp: "Falar pelo WhatsApp",
     understand: "Entender o processo",
+    accompanierLabel: "Quem irá acompanhar você?",
+    accompanierTitle: "Dra. Victoria A. Gómez",
+    accompanierText:
+      "Psicóloga Clínica, Doutora pela UnB, Pós-Doutora, professora universitária e supervisora clínica. Atendimento em português e espanhol.",
     otherAreas: "Outras áreas",
     home: "Página inicial",
     faqTitle: "Perguntas frequentes.",
@@ -73,7 +78,12 @@ const uiCopy = {
     navPrimary: "Para quién",
     navProcess: "Cómo funciona",
     schedule: "Agendar consulta",
+    talkWhatsApp: "Hablar por WhatsApp",
     understand: "Entender el proceso",
+    accompanierLabel: "¿Quién te acompañará?",
+    accompanierTitle: "Dra. Victoria A. Gómez",
+    accompanierText:
+      "Psicóloga Clínica, Doctora por la UnB, Posdoctora, profesora universitaria y supervisora clínica. Atención en portugués y español.",
     otherAreas: "Otras áreas",
     home: "Página inicial",
     faqTitle: "Preguntas frecuentes.",
@@ -215,17 +225,17 @@ export function ServiceLandingPage({
         </div>
       </nav>
 
-      <section className="relative isolate overflow-hidden px-5 pb-16 pt-28 sm:px-8 sm:pb-20 lg:px-10 lg:pt-30">
+      <section className="relative isolate overflow-hidden px-5 pb-12 pt-26 sm:px-8 sm:pb-16 lg:px-10 lg:pt-28">
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(115deg,rgba(255,255,255,0.92),rgba(251,248,243,0.72)_40%,rgba(239,228,213,0.54)),radial-gradient(circle_at_14%_16%,rgba(216,194,163,0.30),transparent_30%),radial-gradient(circle_at_84%_18%,rgba(143,111,79,0.12),transparent_32%)]" />
-        <div className="mx-auto grid w-full max-w-7xl items-center gap-10 lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="max-w-3xl">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="max-w-4xl">
             <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
               {t.eyebrow}
             </p>
-            <h1 className="mt-4 font-serif text-5xl font-medium leading-[0.98] tracking-normal text-[#302923] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-4 max-w-4xl font-serif text-5xl font-medium leading-[0.98] tracking-normal text-[#302923] sm:text-6xl lg:text-7xl">
               {t.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#65584d] sm:text-xl sm:leading-9">
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-[#65584d] sm:text-xl sm:leading-9">
               {t.subtitle}
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -249,28 +259,13 @@ export function ServiceLandingPage({
                 {ui.schedule}
               </a>
               <a
-                href="#como-funciona"
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-14 items-center justify-center rounded-full border border-[#d9cab8] bg-white/56 px-8 text-sm font-semibold text-[#46382e] shadow-[0_10px_26px_rgba(86,62,40,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b99a77] hover:bg-white"
               >
-                {ui.understand}
+                {ui.talkWhatsApp}
               </a>
-            </div>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-[38rem] lg:mr-0">
-            <div className="absolute -left-8 top-12 hidden h-52 w-36 rounded-t-full border border-[#dac8b3] bg-[#efe4d5]/58 lg:block" />
-            <div className="absolute -right-5 -top-5 h-40 w-40 rounded-full border border-white/65 bg-white/44 shadow-[0_18px_54px_rgba(86,62,40,0.08)] backdrop-blur-2xl" />
-            <div className="absolute -inset-5 rounded-[2.35rem] bg-[#d8c2a3]/24 blur-3xl" />
-            <div className="relative overflow-hidden rounded-[2.25rem] border border-white/78 bg-white/46 p-3 shadow-[0_28px_86px_rgba(85,62,40,0.16)] backdrop-blur-2xl">
-              <Image
-                src="/victoria-hero.jpg"
-                alt="Dra. Victoria A. Gómez"
-                width={920}
-                height={1120}
-                priority
-                sizes="(min-width: 1024px) 45vw, 92vw"
-                className="aspect-[4/5] w-full rounded-[1.78rem] object-cover object-[center_26%] saturate-[0.96]"
-              />
             </div>
           </div>
         </div>
@@ -349,6 +344,25 @@ export function ServiceLandingPage({
                 {t.processSection.disclaimer}
               </p>
             ) : null}
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#3f332b] px-7 text-sm font-semibold text-white shadow-[0_16px_42px_rgba(63,51,43,0.16)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#7f654c]"
+              >
+                <WhatsAppIcon className="h-4 w-4" />
+                {ui.schedule}
+              </a>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-[#d9cab8] bg-white/56 px-7 text-sm font-semibold text-[#46382e] shadow-[0_10px_26px_rgba(86,62,40,0.04)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:border-[#b99a77] hover:bg-white"
+              >
+                {ui.talkWhatsApp}
+              </a>
+            </div>
           </article>
 
           <article className="rounded-[1.75rem] border border-white/75 bg-[#3f332b] p-8 text-white shadow-[0_28px_86px_rgba(63,51,43,0.18)] sm:p-10">
@@ -369,6 +383,33 @@ export function ServiceLandingPage({
               ))}
             </div>
           </article>
+        </div>
+      </section>
+
+      <section className="px-5 py-16 sm:px-8 lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-6 overflow-hidden rounded-[2rem] border border-white/75 bg-white/58 p-6 shadow-[0_24px_72px_rgba(90,65,42,0.09)] backdrop-blur-xl sm:p-8 lg:grid-cols-[0.36fr_0.64fr] lg:items-center lg:p-10">
+          <div className="relative mx-auto w-full max-w-[18rem] overflow-hidden rounded-[1.45rem] border border-white/75 bg-[#efe4d5] p-2 shadow-[0_18px_52px_rgba(83,61,40,0.12)] lg:mx-0">
+            <Image
+              src="/victoria-hero.jpg"
+              alt="Dra. Victoria A. Gómez"
+              width={420}
+              height={520}
+              sizes="(min-width: 1024px) 18rem, 70vw"
+              className="aspect-[4/5] w-full rounded-[1.1rem] object-cover object-[center_26%] saturate-[0.96]"
+            />
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#9a7654]">
+              {ui.accompanierLabel}
+            </p>
+            <h2 className="mt-4 font-serif text-4xl font-medium leading-tight text-[#302923] sm:text-5xl">
+              {ui.accompanierTitle}
+            </h2>
+            <p className="mt-5 max-w-2xl text-lg leading-9 text-[#65584d]">
+              {ui.accompanierText}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -449,7 +490,7 @@ export function ServiceLandingPage({
               className="inline-flex min-h-14 w-full items-center justify-center gap-2 rounded-full bg-[#3f332b] px-8 text-sm font-semibold text-white shadow-[0_20px_55px_rgba(63,51,43,0.20)] transition-all duration-300 hover:-translate-y-1 hover:bg-[#8b6b4b] sm:w-auto"
             >
               <WhatsAppIcon className="h-4 w-4" />
-              WhatsApp
+              {ui.talkWhatsApp}
             </a>
             <a
               href={emailUrl}
